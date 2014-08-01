@@ -1,0 +1,21 @@
+#!/bin/bash
+# Date of creation: 1-Aug-2014, 8:05 PM
+# Author: mitthu
+# Job:
+# ---
+# Common library-like header for my bash scripts
+
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+fi
+
+function linux {
+	if [[ $platform == 'linux' ]]; then
+   eval $1
+	fi
+}
+
