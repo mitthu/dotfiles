@@ -1,6 +1,9 @@
 #!/bin/bash
 # Date of Creation: 18-July-2014
 
+# Include my common libraries
+source $HOME/.me/include
+
 # Update path location
 export PATH=$PATH:~/SysOp/bin
 
@@ -8,6 +11,10 @@ export PATH=$PATH:~/SysOp/bin
 alias s="subl"
 
 # Packages
-alias au="sudo apt-get update"
-alias au+="sudo apt-get upgrade"
-alias ai="sudo apt-get install"
+linux alias au="sudo apt-get update"
+linux alias au+="sudo apt-get upgrade"
+linux alias ai="sudo apt-get install"
+
+# Unset all temperory variables
+unset_me
+

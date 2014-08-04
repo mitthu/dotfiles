@@ -5,6 +5,8 @@
 # ---
 # Common library-like header for my bash scripts
 
+ME="$HOME/.me"
+
 platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
@@ -17,5 +19,12 @@ function linux {
 	if [[ $platform == 'linux' ]]; then
    eval $*
 	fi
+}
+
+function unset_me {
+	unset platform
+	unset unamestr
+	unset -f linux
+	unset -f unset_me
 }
 

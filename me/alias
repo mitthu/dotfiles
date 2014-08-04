@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Copy and paste (originally Mac commands)
+linux alias pbcopy='xsel --clipboard --input'
+linux alias pbpaste='xsel --clipboard --output'
