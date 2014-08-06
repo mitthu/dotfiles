@@ -14,7 +14,7 @@ alias s="subl"
 linux alias au="sudo apt-get update"
 linux alias au+="sudo apt-get upgrade"
 linux alias ai="sudo apt-get install"
-linux alias as="apt-cache search"
+linux alias apts="apt-cache search"
 
 # Homeshick utils
 alias hs="homeshick"
