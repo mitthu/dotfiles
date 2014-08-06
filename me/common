@@ -17,7 +17,7 @@ fi
 
 function linux {
 	if [[ $platform == 'linux' ]]; then
-   eval $*
+   eval '$*'
 	fi
 }
 
