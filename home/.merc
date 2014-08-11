@@ -6,15 +6,17 @@ source $HOME/.me/include
 
 # Update path location
 export PATH=$PATH:~/SysOp/bin
+# Add support for 256 colors
+export TERM=xterm-256color
 
 # Editors
 alias s="subl"
 
 # Packages
-linux alias au="sudo apt-get update"
-linux alias au+="sudo apt-get upgrade"
-linux alias ai="sudo apt-get install"
-linux alias apts="apt-cache search"
+alias au="sudo apt-get update"
+alias au+="sudo apt-get upgrade"
+alias ai="sudo apt-get install"
+alias apts="apt-cache search"
 
 # Homeshick utils
 alias hs="homeshick"
