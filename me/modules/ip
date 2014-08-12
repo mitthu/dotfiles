@@ -1,0 +1,23 @@
+#!/bin/bash
+# Date of creation: 12-Aug-2014, 4:11 PM
+# Author: mitthu
+# Job:
+# ---
+# Functions to get the current ip addresses
+
+function ip_all {
+	/sbin/ifconfig | grep -B4 'inet addr' | awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:", $1 } }' | awk -F: '{ print $1 ":" $3 }'
+}
+
+function ip_list {
+	ip_all | awk -F: '{ if ($1 != "lo") print }'
+}
+
+function ip_all_spaced {
+	ip_all | tr "\n" "\ "
+}
+
+function ip_list_spaced {
+	ip_list | tr "\n" "\ "
+}
+
