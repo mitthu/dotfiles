@@ -4,4 +4,5 @@ source ~/.me/common
 source $ME/alias
 
 # Include modules
-source modules/ip
+source $ME/modules/ip
+
