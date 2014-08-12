@@ -1,0 +1,12 @@
+#!/bin/bash
+# Date of creation: 12-Aug-2014, 4:11 PM
+# Author: mitthu
+# Job:
+# ---
+# List of all active IPs and interfaces 
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/../modules/ip
+
+ip_list_spaced
+
