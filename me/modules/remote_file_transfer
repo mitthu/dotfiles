@@ -1,0 +1,33 @@
+#!/bin/bash
+# Date of creation: 12-Aug-2014, 6:16 PM
+# Author: mitthu
+# Job:
+# ---
+# Functions to send receive files via nc
+
+source $ME/modules/ip
+
+PORT=2323
+
+function _r_ip {
+	echo `ip_list | head -1 | cut -d: -f2`
+}
+
+function rput  {
+	if [[ -z $* ]]; then
+		echo "Enter the file/folder name..."
+		return
+	fi
+	echo "Receive using 'rget' or:"
+	echo "nc `_r_ip` $PORT | tar zx"
+	tar zc $* | nc -l $PORT
+}
+
+function rget {
+	if [[ -z $1 ]]; then
+		echo "Enter IP/hostname of server..."
+		return
+	fi
+	nc $1 $PORT | tar zx
+}
+
