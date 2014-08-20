@@ -30,6 +30,9 @@ alias apts="apt-cache search"
 # Homeshick utils
 alias hs="homeshick"
 
+# Vim: Vundle - Silently install bundles
+alias vundle-install="vim +BundleInstall +qall"
+
 # Unset all temperory variables
 unset_me
 
