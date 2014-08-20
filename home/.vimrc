@@ -56,3 +56,9 @@ fun! s:ToggleMouse()
     endif
 endfunction
 
+" Auto-reload .vimrc when its modified
+" Source: http://www.bestofvim.com/tip/auto-reload-your-vimrc/
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
