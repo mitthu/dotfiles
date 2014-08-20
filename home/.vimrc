@@ -26,6 +26,11 @@ if has('autocmd')
 	autocmd filetype python set expandtab
 endif
 
+" Restore coursor position on file re-open
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
 if &t_Co >= 256 || has("gui_running")
 	" colorscheme mustang
 endif
