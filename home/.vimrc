@@ -1,3 +1,39 @@
+" Auto install plugins
+" Pathogen
+" --------
+" execute pathogen#infect()
+"
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Function: source a file if it exists
+function SourceIfExists(name)
+	if filereadable(glob(a:name))
+		exec 'source '.a:name
+	endif
+endfunction
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Load the plugins, as if the file exists.
+call SourceIfExists("~/.vim/rc/vundle-general.vim")
+call SourceIfExists("~/.vim/rc/vundle-developer.vim")
+call SourceIfExists("~/.vim/rc/vundle-experimental.vim")
+
+" All the Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+" --------------------------------------------------------------
+" My Config...
+" --------------------------------------------------------------
 set whichwrap+=<,>,h,l,[,] " Wrap cursor against line boundaries
 set number
 set tabstop=2
@@ -14,12 +50,10 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set mouse=a
 set pastetoggle=<F2>
+filetype on
 
 " Remappings
 nnoremap ; :
-
-" Auto install plugins
-execute pathogen#infect()
 
 filetype plugin indent on
 if has('autocmd')
