@@ -5,4 +5,9 @@
 # ---
 # Run this script after fresh installation, on a new machine.
 
+source ~/.merc
 echo "source ~/.merc" >>~/.bashrc
+
+# Install vundle plugins
+vundle-install
+
