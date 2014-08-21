@@ -9,5 +9,4 @@ source $HOME/.merc
 echo "source ~/.merc" >>~/.bashrc
 
 # Install vundle plugins
-vundle-install
-
+vim +BundleInstall +qall
