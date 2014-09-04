@@ -10,5 +10,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 echo "Updating the dotfiles castle..."
 homeshick cd dotfiles
-git remote set-url origin git@github.com:mitthu/dotfiles_deploy.git
+git remote set-url origin git@github.com:mitthu/dotfiles.git
 
