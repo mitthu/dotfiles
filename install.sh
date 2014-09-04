@@ -6,7 +6,15 @@
 # Run this script after fresh installation, on a new machine.
 
 source $HOME/.merc
-echo "source ~/.merc" >>~/.bashrc
+
+# Update the ~/.bashrc
+if [[ -z `grep "source ~/.merc"  <~/.bashrc` ]]; then
+	echo "Add sourcing of .merc in ~/.bashrc"
+	cat >>~/.bashrc <<-EOF
+	# My Custom Profile
+	source ~/.merc
+	EOF
+fi
 
 # Install vundle plugins
 vim +BundleInstall +qall
