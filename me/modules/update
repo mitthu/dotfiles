@@ -1,0 +1,20 @@
+#!/bin/bash
+# Date of creation: 04-Sept-2014, 5:21 PM
+# Author: mitthu
+# Job:
+# ---
+# Update the my dotfiles deployment.
+
+function me-update {
+	source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+	homeshick pull dotfiles
+	### Link it all to $HOME ###
+	homeshick link --force
+	
+	echo "Updated."
+}
+
+function me-update-repo {
+	echo "Updating deployment via repo..."
+	curl -sL http://bit.ly/VKrtY3 | /bin/bash -ex
+}
