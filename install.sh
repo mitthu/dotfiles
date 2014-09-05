@@ -17,4 +17,4 @@ if [[ -z `grep "source ~/.merc"  <~/.bashrc` ]]; then
 fi
 
 # Install vundle plugins
-vim +BundleInstall +qall
+vim +BundleInstall +qall </dev/tty
