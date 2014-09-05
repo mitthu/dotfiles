@@ -31,3 +31,7 @@ The usage of my bash functions is documented below.
   - Updates the castle by updating from this repo..
 - `me-update-repo`
   - Updates the castle by using the update script from the [mitthu/dotfile_deploy](https://github.com/mitthu/dotfiles_deploy) repo.
+- `ip_all` and `ip_all_spaced`
+  - List all the interfaces and the corresponding IPs the instance is assigned.
+- `ip_list` and `ip_list_spaced`
+  - Same as the **all** variant, except the `lo` (localhost) interface is ignored. The `ip_list_spaced` is used in the tmux status bar.
