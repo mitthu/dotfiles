@@ -24,3 +24,8 @@ The contents of the castle include:
   - `robbyrussell/oh-my-zsh`
   - `gnome-terminal-colors-solarized`
   - `vim-bundle/vim-colors-solarized`
+
+### My Bash Functions
+The usage of my bash functions is documented below.
+- `me-update`: Updates the castle by updating from this repo..
+- `me-update-repo`: Updates the castle by using the update script from the [mitthu/dotfile_deploy](https://github.com/mitthu/dotfiles_deploy) repo.
