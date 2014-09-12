@@ -35,6 +35,9 @@ alias hs="homeshick"
 # Vim: Vundle - Silently install bundles
 alias vundle-install="vim +BundleInstall +qall"
 
+# Source all the local bash rc's
+source ~/.melocal/*
+
 # Unset all temperory variables
 unset_me
 
