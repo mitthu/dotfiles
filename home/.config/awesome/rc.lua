@@ -287,7 +287,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Mod1"    }, "Right",  function () awful.tag.incmwfact( 0.01)    end),
     awful.key({ modkey, "Mod1"    }, "Left",   function () awful.tag.incmwfact(-0.01)    end),
     awful.key({ modkey, "Mod1"    }, "Down",   function () awful.client.incwfact( 0.01)  end),
-    awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)  end)
+    awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)  end),
+    -- Running programs
+    awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end)
 )
 
 -- Source: http://awesome.naquadah.org/wiki/FullScreens
