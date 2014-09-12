@@ -299,6 +299,12 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioMute", function ()
        awful.util.spawn("amixer -D pulse set Master toggle", false) end),
 
+    -- Brightness control
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+       awful.util.spawn("xbacklight -dec 10", false) end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+       awful.util.spawn("xbacklight -inc 10", false) end),
+
     -- Running programs
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end)
 )
