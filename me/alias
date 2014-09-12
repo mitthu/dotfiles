@@ -3,3 +3,10 @@
 # Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
 alias lpaste='xsel --clipboard --output'
+
+# Tmux aliases
+alias tmux='tmux -u'
+alias ts='tmux new-session -s'
+alias ta='tmux attach'
+alias tas='tmux attach -t'
+alias tl='tmux list-sessions'
