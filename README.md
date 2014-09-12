@@ -25,9 +25,26 @@ The contents of the castle include:
   - `gnome-terminal-colors-solarized`
   - `vim-bundle/vim-colors-solarized`
 
-### My Bash Functions
+### My Bash Functions/Aliases
 The usage of my bash functions is documented below.
 - `me-update`
   - Updates the castle by updating from this repo..
 - `me-update-repo`
   - Updates the castle by using the update script from the [mitthu/dotfile_deploy](https://github.com/mitthu/dotfiles_deploy) repo.
+- `ip_all` and `ip_all_spaced`
+  - List all the interfaces and the corresponding IPs the instance is assigned.
+- `ip_list` and `ip_list_spaced`
+  - Same as the **all** variant, except the `lo` (localhost) interface is ignored. The `ip_list_spaced` is used in the tmux status bar.
+- `rput` and `rget` (**Remote file transfer**)
+  - These functions are used for remote file transfer using `nc` over port `2323`.
+  - `rput`: Listen on `0.0.0.0:2323`
+  - `rget`: Fetch over port `2323`
+  - Usage:
+    ```bash
+    # Initiate first on the instance where the files are located.
+    # Runs a listen service on port 2323, bound to all interfaces (0.0.0.0).
+    rput <file/folders>
+
+    # Then, on the instance where you want the files, run
+    rget <IP>
+    ```
