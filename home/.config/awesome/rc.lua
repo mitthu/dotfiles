@@ -282,12 +282,23 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- My Customizations
-    --------------------
+    --++++++++++++++++++
     -- Window Resize
     awful.key({ modkey, "Mod1"    }, "Right",  function () awful.tag.incmwfact( 0.01)    end),
     awful.key({ modkey, "Mod1"    }, "Left",   function () awful.tag.incmwfact(-0.01)    end),
     awful.key({ modkey, "Mod1"    }, "Down",   function () awful.client.incwfact( 0.01)  end),
     awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)  end),
+
+    -- Event based
+    --------------
+    -- Volumn control
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+       awful.util.spawn("amixer -D pulse set Master 7%+", false) end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+       awful.util.spawn("amixer -D pulse set Master 7%-", false) end),
+    awful.key({ }, "XF86AudioMute", function ()
+       awful.util.spawn("amixer -D pulse set Master toggle", false) end),
+
     -- Running programs
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end)
 )
