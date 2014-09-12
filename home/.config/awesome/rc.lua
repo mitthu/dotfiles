@@ -262,8 +262,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
@@ -280,7 +280,15 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- My Customizations
+    --------------------
+    -- Window Resize
+    awful.key({ modkey, "Mod1"    }, "Right",  function () awful.tag.incmwfact( 0.01)    end),
+    awful.key({ modkey, "Mod1"    }, "Left",   function () awful.tag.incmwfact(-0.01)    end),
+    awful.key({ modkey, "Mod1"    }, "Down",   function () awful.client.incwfact( 0.01)  end),
+    awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)  end)
 )
 
 -- Source: http://awesome.naquadah.org/wiki/FullScreens
