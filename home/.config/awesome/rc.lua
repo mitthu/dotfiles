@@ -14,6 +14,9 @@ local menubar = require("menubar")
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Plugins
+local tyrannical = require("tyrannical")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -306,7 +309,44 @@ globalkeys = awful.util.table.join(
        awful.util.spawn("xbacklight -inc 10", false) end),
 
     -- Running programs
-    awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end)
+    awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end),
+
+    -- Tag Management
+    awful.key({ modkey, "Shift" }, "d", function () awful.tag.delete() end),
+    awful.key({ modkey, "Shift" }, "r",
+             function ()
+                awful.prompt.run({ prompt = "Rename tag: " },
+                                 mypromptbox[mouse.screen].widget,
+                                 function(new_name)
+                                    if not new_name or #new_name == 0 then
+                                       return
+                                    else
+                                       local screen = mouse.screen
+                                       local tag = awful.tag.selected(screen)
+                                       if tag then
+                                          tag.name = new_name
+                                       end
+                                    end
+                                 end)
+             end),
+    awful.key({ modkey, "Shift" }, "a",
+        function ()
+                  awful.prompt.run({ prompt = "New tag name: " },
+                    mypromptbox[mouse.screen].widget,
+                    function(new_name)
+                        if not new_name or #new_name == 0 then
+                            return
+                        else
+                            props = {selected = true}
+                            if tyrannical.tags_by_name[new_name] then
+                               props = tyrannical.tags_by_name[new_name]
+                            end
+                            t = awful.tag.add(new_name, props)
+                            awful.tag.viewonly(t)
+                        end
+                    end
+                    )
+        end)
 )
 
 -- Source: http://awesome.naquadah.org/wiki/FullScreens
