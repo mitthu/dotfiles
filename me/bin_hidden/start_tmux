@@ -1,0 +1,13 @@
+#!/bin/bash
+# Date of creation: 17-Sept-2014, 12:32 PM IST
+# Author: mitthu
+# Job:
+# ---
+# Start a new tmux sessions if none exists. Else attach to an existiong session. 
+
+tmux attach
+# If the above fails then create a new session.
+if [[ 0 != $? ]]; then
+	tmux
+fi
+

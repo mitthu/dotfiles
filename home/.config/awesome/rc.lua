@@ -56,6 +56,8 @@ editor_cmd = terminal .. " -e " .. editor
 -- Kill old instances on awesome config reload
 awful.util.spawn("killall nm-applet")
 awful.util.spawn("nm-applet")
+-- Start terminal and start/attach to a tmux session
+awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
 awful.util.spawn("google-chrome chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=478ed674-9fae-4088-86e1-90c1fec6259d")
 
 -- Default modkey.
@@ -98,11 +100,10 @@ tyrannical.tags = {
         name        = "1:Term",                 -- Call the tag "Term"
       --icon        = "/usr/share/pixmaps/xfce4-terminal.xpm", -- Use this icon for the tag
         init        = true,                   -- Load the tag on startup
-        exclusive   = false,                   -- Refuse any other type of clients (by classes)
+        exclusive   = true,                   -- Refuse any other type of clients (by classes)
         fallback    = true,
         screen      = {1,2},                  -- create this tag on screen 1 and screen 2
-        layout      = awful.layout.suit.tile, -- use the tile layout
-        exec_once   = {"xfce4-terminal"}
+        layout      = awful.layout.suit.tile  -- use the tile layout
     } ,
     {
         name        = "2:Firefox",
