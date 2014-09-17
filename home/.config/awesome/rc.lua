@@ -129,7 +129,18 @@ tyrannical.tags = {
             "Go.to", "Google-chrome-stable", "Google-chrome", "chrome"    }
     } ,
     {
-        name = "4:Files",
+        name = "4:Mail",
+        init        = true,
+        exclusive   = false,
+        screen      = 1,
+        layout      = awful.layout.suit.tile,
+        exec_once   = {"thunderbird"}, --When the tag is accessed for the first time, execute this command
+        class  = {
+            "Thunderbird", "Evolution"
+        }
+    } ,
+    {
+        name = "5:Files",
         init        = true,
         exclusive   = false,
         screen      = 1,
@@ -140,7 +151,18 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "5:Develop",
+        name = "6:Music",
+        init        = true,
+        exclusive   = false,
+        screen      = 1,
+        layout      = awful.layout.suit.tile,
+        exec_once   = {"rhythmbox"}, --When the tag is accessed for the first time, execute this command
+        class  = {
+            "Music", "Rhythmbox",
+        }
+    } ,
+    {
+        name = "7:Develop",
         init        = true,
         exclusive   = false,
         screen      = 1,
