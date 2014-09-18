@@ -97,7 +97,7 @@ end
 -- Define a tag table which hold all screen tags.
 tyrannical.tags = {
     {
-        name        = "1:Term",                 -- Call the tag "Term"
+        name        = "Term",                 -- Call the tag "Term"
       --icon        = "/usr/share/pixmaps/xfce4-terminal.xpm", -- Use this icon for the tag
         init        = true,                   -- Load the tag on startup
         exclusive   = true,                   -- Refuse any other type of clients (by classes)
@@ -106,11 +106,12 @@ tyrannical.tags = {
         layout      = awful.layout.suit.tile  -- use the tile layout
     } ,
     {
-        name        = "2:Firefox",
+        name        = "Firefox",
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/pixmaps/firefox.png", -- Use this icon for the tag (uncomment with a real path)
-        screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
+        screen      = {1,2},
+      --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
         layout      = awful.layout.suit.tile,      -- Use the max layout
         exec_once   = {"firefox"},
         class = {
@@ -118,18 +119,18 @@ tyrannical.tags = {
             "Chromium"      , "nightly"        , "minefield"    }
     } ,
     {
-        name        = "3:Chat",
+        name        = "Chat",
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/icons/hicolor/16x16/apps/google-chrome.png", -- Use this icon for the tag (uncomment with a real path)
-        screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
+      --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
         layout      = awful.layout.suit.tile,      -- Use the max layout
         instance    = {"google-chrome-stable", "chrome"},
         class = {
             "Go.to", "Google-chrome-stable", "Google-chrome", "chrome"    }
     } ,
     {
-        name = "4:Mail",
+        name = "Mail",
         init        = true,
         exclusive   = false,
         screen      = 1,
@@ -140,7 +141,7 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "5:Files",
+        name = "Files",
         init        = true,
         exclusive   = false,
         screen      = 1,
@@ -151,7 +152,7 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "6:Music",
+        name = "Music",
         init        = true,
         exclusive   = false,
         screen      = 1,
@@ -162,8 +163,8 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "7:Develop",
-        init        = true,
+        name = "Develop",
+        init        = false,
         exclusive   = false,
         screen      = 1,
         clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
