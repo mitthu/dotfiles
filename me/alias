@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Misc.
+alias fuck='history | tail -1 | cut -d\   -f4-'
+
 # Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
 alias lpaste='xsel --clipboard --output'
