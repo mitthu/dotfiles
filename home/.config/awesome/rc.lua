@@ -105,7 +105,7 @@ tyrannical.tags = {
         init        = true,                   -- Load the tag on startup
         exclusive   = true,                   -- Refuse any other type of clients (by classes)
         fallback    = true,
-        screen      = all_screens,            -- create this tag on screen 1 and screen 2
+        screen      = primary_screen,            -- create this tag on screen 1 and screen 2
         layout      = awful.layout.suit.tile  -- use the tile layout
     } ,
     {
