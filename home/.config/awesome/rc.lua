@@ -95,6 +95,9 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
+all_screens      = {1, 2}
+primary_screen   = 2
+secondary_screen = 1
 tyrannical.tags = {
     {
         name        = "Term",                 -- Call the tag "Term"
@@ -102,7 +105,7 @@ tyrannical.tags = {
         init        = true,                   -- Load the tag on startup
         exclusive   = true,                   -- Refuse any other type of clients (by classes)
         fallback    = true,
-        screen      = {1,2},                  -- create this tag on screen 1 and screen 2
+        screen      = all_screens,            -- create this tag on screen 1 and screen 2
         layout      = awful.layout.suit.tile  -- use the tile layout
     } ,
     {
@@ -110,7 +113,7 @@ tyrannical.tags = {
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/pixmaps/firefox.png", -- Use this icon for the tag (uncomment with a real path)
-        screen      = {1,2},
+        screen      = primary_screen,
       --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
         layout      = awful.layout.suit.tile,      -- Use the max layout
         exec_once   = {"firefox"},
@@ -124,6 +127,7 @@ tyrannical.tags = {
         exclusive   = false,
       --icon        = "/usr/share/icons/hicolor/16x16/apps/google-chrome.png", -- Use this icon for the tag (uncomment with a real path)
       --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
+        screen      = secondary_screen,
         layout      = awful.layout.suit.tile,      -- Use the max layout
         instance    = {"google-chrome-stable", "chrome"},
         class = {
@@ -133,7 +137,7 @@ tyrannical.tags = {
         name = "Mail",
         init        = true,
         exclusive   = false,
-        screen      = 1,
+        screen      = primary_screen,
         layout      = awful.layout.suit.tile,
         exec_once   = {"thunderbird"}, --When the tag is accessed for the first time, execute this command
         class  = {
@@ -144,7 +148,7 @@ tyrannical.tags = {
         name = "Files",
         init        = true,
         exclusive   = false,
-        screen      = 1,
+        screen      = all_screens,
         layout      = awful.layout.suit.tile,
         exec_once   = {"thunar"}, --When the tag is accessed for the first time, execute this command
         class  = {
@@ -155,7 +159,7 @@ tyrannical.tags = {
         name = "Music",
         init        = true,
         exclusive   = false,
-        screen      = 1,
+        screen      = secondary_screen,
         layout      = awful.layout.suit.tile,
         exec_once   = {"rhythmbox"}, --When the tag is accessed for the first time, execute this command
         class  = {
@@ -166,7 +170,7 @@ tyrannical.tags = {
         name = "Develop",
         init        = false,
         exclusive   = false,
-        screen      = 1,
+        screen      = primary_screen,
         clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
                          -- The tag can be used on both screen, but only one at once
         layout      = awful.layout.suit.tile,
@@ -179,6 +183,7 @@ tyrannical.tags = {
                              -- client in the "class" section will start. It will be created on
                              -- the client startup screen
         exclusive   = false,
+        screen      = primary_screen,
         layout      = awful.layout.suit.max,
         class       = {
             "Assistant"     , "Okular"         , "Evince"    , "EPDFviewer"   , "xpdf",
