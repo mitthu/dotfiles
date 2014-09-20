@@ -425,6 +425,22 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Mod1"    }, "Down",   function () awful.client.incwfact( 0.01)  end),
     awful.key({ modkey, "Mod1"    }, "Up",     function () awful.client.incwfact(-0.01)  end),
 
+    -- Floaters (Floating Windows)
+    -- ===========================
+    -- Movement (Mod + Ctrl + Arrow Keys)
+   awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+
+   -- Resize (Mod + Shift + Arrow Keys/Page Up/Page Down)
+   awful.key({ modkey, "Shift" }, "Next",  function () awful.client.moveresize( 20,  20, -40, -40) end),
+   awful.key({ modkey, "Shift" }, "Prior", function () awful.client.moveresize(-20, -20,  40,  40) end),
+   awful.key({ modkey, "Shift" }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
+   awful.key({ modkey, "Shift" }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
+   awful.key({ modkey, "Shift" }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
+   awful.key({ modkey, "Shift" }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
+
     -- Event based
     --------------
     -- Volumn control
@@ -443,6 +459,11 @@ globalkeys = awful.util.table.join(
 
     -- Running programs
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end),
+
+    -- Misc
+    -- ====
+    -- Toggle status bar (Mod + b)
+    awful.key({ modkey }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
 
     -- Tag Management
     awful.key({ modkey, "Shift" }, "d", function () awful.tag.delete() end),
