@@ -115,7 +115,7 @@ tyrannical.tags = {
       --icon        = "/usr/share/pixmaps/firefox.png", -- Use this icon for the tag (uncomment with a real path)
         screen      = primary_screen,
       --screen      = screen.count()>1 and 2 or 1,-- Setup on screen 2 if there is more than 1 screen, else on screen 1
-        layout      = awful.layout.suit.tile,      -- Use the max layout
+        layout      = awful.layout.suit.max,       -- Use the max layout
         exec_once   = {"firefox"},
         class = {
             "Opera"         , "Firefox"        , "Rekonq"    , "Dillo"        , "Arora",
