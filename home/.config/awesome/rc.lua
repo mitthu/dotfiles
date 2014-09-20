@@ -54,8 +54,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Startup Applications
 -- Kill old instances on awesome config reload
-awful.util.spawn("killall nm-applet")
-awful.util.spawn("nm-applet")
+awful.util.spawn_with_shell("killall nm-applet; nm-applet", false)
+
 -- Start terminal and start/attach to a tmux session
 awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
 awful.util.spawn("google-chrome chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=478ed674-9fae-4088-86e1-90c1fec6259d")
@@ -96,7 +96,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 all_screens      = {1, 2}
-primary_screen   = 2
+primary_screen   = screen.count()>1 and 2 or 1 -- Setup on screen 2 if there is more than 1 screen, else on screen 1
 secondary_screen = 1
 tyrannical.tags = {
     {
