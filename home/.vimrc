@@ -37,6 +37,7 @@ filetype plugin indent on    " required
 set whichwrap+=<,>,h,l,[,] " Wrap cursor against line boundaries
 set number
 set tabstop=2
+set expandtab     " always uses spaces instead of tab characters
 set autoindent
 set copyindent
 set shiftwidth=2  " number of spaces to use for autoindenting

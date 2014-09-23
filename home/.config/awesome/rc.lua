@@ -55,6 +55,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- Startup Applications
 -- Kill old instances on awesome config reload
 awful.util.spawn_with_shell("killall nm-applet; nm-applet", false)
+awful.util.spawn("dropbox start", false)
 
 -- Start terminal and start/attach to a tmux session
 awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
@@ -618,6 +619,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { }, properties = { }, callback = awful.client.setslave },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
