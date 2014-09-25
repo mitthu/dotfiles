@@ -36,11 +36,15 @@ filetype plugin indent on    " required
 " --------------------------------------------------------------
 set whichwrap+=<,>,h,l,[,] " Wrap cursor against line boundaries
 set number
-set tabstop=2
-set expandtab     " always uses spaces instead of tab characters
+set tabstop=4
+set noexpandtab   " never uses spaces instead of tab characters
+set softtabstop=4 " How many columns vim uses for tab. Tabs
+                  " are given priority, and vim adjusts tabs
+                  " and spaces to get the desired number of
+                  " columns.
 set autoindent
 set copyindent
-set shiftwidth=2  " number of spaces to use for autoindenting
+set shiftwidth=4  " number of spaces to use for autoindenting
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
