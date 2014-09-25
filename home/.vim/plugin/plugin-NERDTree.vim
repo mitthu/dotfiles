@@ -4,5 +4,5 @@
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" Close vim if conly NERDTree is open
+" Close vim if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
