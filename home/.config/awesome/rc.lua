@@ -97,8 +97,8 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 all_screens      = {1, 2}
-primary_screen   = screen.count()>1 and 2 or 1 -- Setup on screen 2 if there is more than 1 screen, else on screen 1
-secondary_screen = 1
+primary_screen   = 1
+secondary_screen = screen.count()>1 and 2 or 1 -- Setup on screen 2 if there is more than 1 screen, else on screen 1
 tyrannical.tags = {
     {
         name        = "Term",                 -- Call the tag "Term"
