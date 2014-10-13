@@ -10,6 +10,49 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local vicious = require("vicious")
+
+---+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Vicious Widgets                                                       |
+
+-- {{{ Battery state
+-- Text widget
+batwidget_text = wibox.widget.textbox()
+vicious.register(batwidget_text, vicious.widgets.bat, " Battery : $2% ", 61, "BAT0")
+-- Progress bar
+batwidget = awful.widget.progressbar()
+batwidget:set_width(8)
+batwidget:set_height(10)
+batwidget:set_vertical(true)
+batwidget:set_background_color("#494B4F")
+batwidget:set_border_color(nil)
+--batwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 0, 10 },
+--    stops = { { 0, "#AECF96" }, { 0.5, "#88A175" }, { 1, "#FF5656" }}})
+vicious.register(batwidget, vicious.widgets.bat, "$2", 61, "BAT0")
+
+-- {{{ Memory
+memwidget = wibox.widget.textbox()
+vicious.register(memwidget, vicious.widgets.mem, "$1% ($2MB/$3MB)", 13)
+
+-- {{{ CPU
+cpuwidget = awful.widget.graph()
+cpuwidget:set_width(50)
+cpuwidget:set_background_color("#494B4F")
+cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 50, 0 },
+    stops = { { 0, "#FF5656" }, { 0.5, "#88A175" }, { 1, "#AECF96" }}})
+vicious.cache(vicious.widgets.cpu)
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 3)
+
+-- {{{ Volume
+volumewidget = wibox.widget.textbox()
+vicious.register(volumewidget, vicious.widgets.volume,
+  function(widget, args)
+    local label = { ["♫"] = "O", ["♩"] = "M" }
+    return " Volume: " .. args[1] .. "% State: " .. label[args[2]]
+  end, 2, "PCM")
+
+-- Vicious Widgets                                                       |
+---+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -335,6 +378,11 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(cpuwidget)
+    right_layout:add(memwidget)
+    right_layout:add(batwidget_text)
+    right_layout:add(batwidget)
+    right_layout:add(volumewidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
