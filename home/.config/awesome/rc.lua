@@ -59,7 +59,7 @@ awful.util.spawn("dropbox start", false)
 
 -- Start terminal and start/attach to a tmux session
 awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
-awful.util.spawn("google-chrome chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=478ed674-9fae-4088-86e1-90c1fec6259d")
+awful.util.spawn("google-chrome-stable chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=a5cb13be-49d5-4f25-8aef-7150b225b882")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
