@@ -10,3 +10,6 @@
 [submodule "repos/tyrannical"]
 	path = repos/tyrannical
 	url = https://github.com/Elv13/tyrannical.git
+[submodule "repos/awesome_vicious"]
+	path = repos/awesome_vicious
+	url = http://git.sysphere.org/vicious
