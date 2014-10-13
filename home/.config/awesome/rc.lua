@@ -357,6 +357,8 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
+local float_change_dimesions = 200
+
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
@@ -428,18 +430,18 @@ globalkeys = awful.util.table.join(
     -- Floaters (Floating Windows)
     -- ===========================
     -- Movement (Mod + Ctrl + Arrow Keys)
-   awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
-   awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
-   awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
-   awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,  float_change_dimesions,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0, -float_change_dimesions,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(-float_change_dimesions,   0,   0,   0) end),
+   awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize( float_change_dimesions,   0,   0,   0) end),
 
    -- Resize (Mod + Shift + Arrow Keys/Page Up/Page Down)
-   awful.key({ modkey, "Shift" }, "Next",  function () awful.client.moveresize( 20,  20, -40, -40) end),
-   awful.key({ modkey, "Shift" }, "Prior", function () awful.client.moveresize(-20, -20,  40,  40) end),
-   awful.key({ modkey, "Shift" }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
-   awful.key({ modkey, "Shift" }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
-   awful.key({ modkey, "Shift" }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
-   awful.key({ modkey, "Shift" }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
+   awful.key({ modkey, "Shift" }, "Next",  function () awful.client.moveresize( float_change_dimesions,  float_change_dimesions, -2*float_change_dimesions, -2*float_change_dimesions) end),
+   awful.key({ modkey, "Shift" }, "Prior", function () awful.client.moveresize(-float_change_dimesions, -float_change_dimesions,  2*float_change_dimesions,  2*float_change_dimesions) end),
+   awful.key({ modkey, "Shift" }, "Down",  function () awful.client.moveresize(  0,   0,   0,  float_change_dimesions) end),
+   awful.key({ modkey, "Shift" }, "Up",    function () awful.client.moveresize(  0,   0,   0, -float_change_dimesions) end),
+   awful.key({ modkey, "Shift" }, "Left",  function () awful.client.moveresize(  0,   0, -float_change_dimesions,   0) end),
+   awful.key({ modkey, "Shift" }, "Right", function () awful.client.moveresize(  0,   0,  float_change_dimesions,   0) end),
 
     -- Event based
     --------------
