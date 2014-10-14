@@ -193,7 +193,7 @@ tyrannical.tags = {
         exclusive   = false,
         screen      = primary_screen,
         layout      = awful.layout.suit.max,
-        exec_once   = {"thunar"}, --When the tag is accessed for the first time, execute this command
+        exec_once   = {"dolphin"}, --When the tag is accessed for the first time, execute this command
         class  = {
             "Thunar", "Konqueror", "Dolphin", "ark", "Nautilus","emelfm"
         }
@@ -204,9 +204,9 @@ tyrannical.tags = {
         exclusive   = false,
         screen      = primary_screen,
         layout      = awful.layout.suit.tile,
-        exec_once   = {"rhythmbox"}, --When the tag is accessed for the first time, execute this command
+        exec_once   = {"amarok"}, --When the tag is accessed for the first time, execute this command
         class  = {
-            "Music", "Rhythmbox",
+            "Music", "Rhythmbox", "Amarok",
         }
     } ,
     {
