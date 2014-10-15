@@ -495,11 +495,11 @@ globalkeys = awful.util.table.join(
     --------------
     -- Volumn control
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-       awful.util.spawn("amixer -D pulse set Master 7%+", false) end),
+       awful.util.spawn("amixer set Master 7%+", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-       awful.util.spawn("amixer -D pulse set Master 7%-", false) end),
+       awful.util.spawn("amixer set Master 7%-", false) end),
     awful.key({ }, "XF86AudioMute", function ()
-       awful.util.spawn("amixer -D pulse set Master toggle", false) end),
+       awful.util.spawn("amixer set Master toggle", false) end),
 
     -- Brightness control
     awful.key({ }, "XF86MonBrightnessDown", function ()
