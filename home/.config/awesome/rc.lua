@@ -200,11 +200,10 @@ tyrannical.tags = {
     } ,
     {
         name = "Music",
-        init        = true,
+        init        = false,
         exclusive   = false,
         screen      = primary_screen,
         layout      = awful.layout.suit.tile,
-        exec_once   = {"amarok"}, --When the tag is accessed for the first time, execute this command
         class  = {
             "Music", "Rhythmbox", "Amarok",
         }
