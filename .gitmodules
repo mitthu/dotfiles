@@ -13,3 +13,6 @@
 [submodule "repos/awesome_vicious"]
 	path = repos/awesome_vicious
 	url = http://git.sysphere.org/vicious
+[submodule "repos/dropbox_uploader"]
+	path = repos/dropbox_uploader
+	url = https://github.com/andreafabrizi/Dropbox-Uploader.git
