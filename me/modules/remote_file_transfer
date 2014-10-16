@@ -20,7 +20,7 @@ function rput  {
 	fi
 	echo "Receive using 'rget' or:"
 	echo "nc `_r_ip` $PORT | tar zx"
-	tar zc $* | nc -l $PORT
+	tar zc $* | nc -l -p $PORT
 }
 
 function rget {
