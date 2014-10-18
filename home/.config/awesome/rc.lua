@@ -154,13 +154,13 @@ tyrannical.tags = {
 	  --class       = { "Terminal", "xfce4-terminal", "gnome-terminal", "xterm" }
     } ,
     {
-        name        = "Firefox",
+        name        = "Web",
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/pixmaps/firefox.png", -- Use this icon for the tag (uncomment with a real path)
-        screen      = primary_screen,
+        screen      = secondary_screen,
         layout      = awful.layout.suit.max,       -- Use the max layout
-        exec_once   = {"firefox"},
+      --exec_once   = {"firefox"},
         class = {
             "Opera"         , "Firefox"        , "Rekonq"    , "Dillo"        , "Arora",
             "Chromium"      , "nightly"        , "minefield"    }
@@ -182,7 +182,7 @@ tyrannical.tags = {
         exclusive   = false,
         screen      = primary_screen,
         layout      = awful.layout.suit.tile,
-        exec_once   = {"thunderbird"}, --When the tag is accessed for the first time, execute this command
+      --exec_once   = {"thunderbird"}, --When the tag is accessed for the first time, execute this command
         class  = {
             "Thunderbird", "Evolution"
         }
