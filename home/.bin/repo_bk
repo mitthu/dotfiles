@@ -1,0 +1,64 @@
+#!/bin/bash
+# Date of Creation: 20-Oct-2014
+
+# Base location for repo storage.
+# Should end with a trailing '/'.
+BASE_LOCATION=$HOME/SysOp/repos_bk/
+
+# Location of the script that lists the repos to backup.
+REPO_LIST_LOCATION="$HOME/.bin/repo_bk.list"
+
+# Clone a remote repo to a bare repo.
+function clone_repo()
+{
+	local NAME=$1
+	local URL=$2
+
+	echo -n "Cloning repo ($URL) ... "
+	git clone --quiet --mirror "$URL" "${BASE_LOCATION}$NAME" && echo "DONE"
+}
+
+# Fetch changes to a bare repo.
+function fetch_repo()
+{
+	local NAME=$1
+
+	echo -n "Fetching updates ($NAME) ... "
+	(cd "${BASE_LOCATION}$NAME" && git fetch && echo "DONE")
+}
+
+# Clone / Fetch repo based on presence.
+function process_repo()
+{
+	local NAME=$1
+
+	if [[ -d ${BASE_LOCATION}$NAME ]]
+	then
+		fetch_repo $*
+	else
+		clone_repo $*
+	fi
+}
+
+# Process all repos mentioned in the data store.
+function process_repos()
+{
+	echo -n "Fetching repo list from $REPO_LIST_LOCATION ... "
+	source $REPO_LIST_LOCATION
+	echo "DONE"
+	
+	# Pocess each repo in the repo list.
+	while [[ $#REPOS > 1 ]]
+	do
+		process_repo $REPOS[1] $REPOS[2]
+		shift REPOS
+		shift REPOS
+	done
+}
+
+# Clean repos ftom backup location.
+# If the repo isn't tracked anymore, then remove the repo.
+function clean_repos()
+{
+	echo "Cleaning repos ..."
+}
