@@ -93,16 +93,17 @@ beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "editor"
+home = os.getenv("HOME")
 editor_cmd = terminal .. " -e " .. editor
 
 -- Startup Applications
 -- Kill old instances on awesome config reload
 awful.util.spawn_with_shell("killall nm-applet; nm-applet", false)
-awful.util.spawn("dropbox start", false)
+awful.util.spawn(home.."/.dropbox-dist/dropboxd", false)
 
 -- Start terminal and start/attach to a tmux session
-awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
-awful.util.spawn("google-chrome-stable chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=a5cb13be-49d5-4f25-8aef-7150b225b882")
+--awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
+--awful.util.spawn("google-chrome-stable chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=a5cb13be-49d5-4f25-8aef-7150b225b882")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
