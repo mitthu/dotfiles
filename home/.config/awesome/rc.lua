@@ -18,7 +18,7 @@ local vicious = require("vicious")
 -- {{{ Battery state
 -- Text widget
 batwidget_text = wibox.widget.textbox()
-vicious.register(batwidget_text, vicious.widgets.bat, " Battery : $2% ", 61, "BAT0")
+vicious.register(batwidget_text, vicious.widgets.bat, " Battery ($1) : $2% ", 61, "BAT0")
 -- Progress bar
 batwidget = awful.widget.progressbar()
 batwidget:set_width(8)
