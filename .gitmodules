@@ -16,3 +16,6 @@
 [submodule "repos/dropbox_uploader"]
 	path = repos/dropbox_uploader
 	url = https://github.com/andreafabrizi/Dropbox-Uploader.git
+[submodule "repos/me_git_backup"]
+	path = repos/me_git_backup
+	url = https://github.com/mitthu/git_backup
