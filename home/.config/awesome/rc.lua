@@ -99,6 +99,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- Startup Applications
 -- Kill old instances on awesome config reload
 awful.util.spawn_with_shell("killall nm-applet; nm-applet", false)
+awful.util.spawn_with_shell("killall xscreensaver; xscreensaver -nosplash", false)
 awful.util.spawn(home.."/.dropbox-dist/dropboxd", false)
 
 -- Start terminal and start/attach to a tmux session
@@ -508,7 +509,8 @@ globalkeys = awful.util.table.join(
        awful.util.spawn("xbacklight -inc 10", false) end),
 
     -- Running programs
-    awful.key({ modkey,           }, "z", function() awful.util.spawn("xtrlock") end),
+    awful.key({ modkey,           }, "z", function() awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey, "Shift"   }, "z", function() awful.util.spawn("xtrlock") end),
 
     -- Misc
     -- ====
