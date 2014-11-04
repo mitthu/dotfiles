@@ -20,9 +20,6 @@ alias re-source="source $HOME/.merc"
 alias dark="source $ME/others/terminal_solarized/set_dark.sh"
 alias light="source $ME/others/terminal_solarized/set_light.sh"
 
-# Editors
-alias s="subl"
-
 # Packages
 alias au="sudo apt-get update"
 alias au+="sudo apt-get upgrade"

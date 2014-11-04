@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Editors
+alias e="vim"
+
+# Login helpers
+alias s="ssh -l aditya.ba"
+alias sshpass="ssh -o PubkeyAuthentication=no"
+
 # Misc.
 alias fuck='history | tail -1 | cut -d\   -f4-'
 
