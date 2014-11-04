@@ -4,8 +4,12 @@
 alias e="vim"
 
 # Login helpers
+## ssh as my user
 alias s="ssh -l aditya.ba"
-alias sshpass="ssh -o PubkeyAuthentication=no"
+## ssh using automatic password typing
+alias st="sshpass"
+## ssh without using Public Key auth
+alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
 
 # Misc.
 alias fuck='history | tail -1 | cut -d\   -f4-'
