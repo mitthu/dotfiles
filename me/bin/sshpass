@@ -1,0 +1,23 @@
+#!/bin/bash
+# Date of creation: 4-Nov-2014, 4:27 PM IST
+# Author: mitthu
+# Job:
+# ---
+# Passwordless ssh login (with passwords).
+
+host=$1
+script="sshpass_auto_type"
+passdb="$HOME/.me/config/sshpass.sh"
+
+# Sanity checks.
+[ -z $host ] && { echo "Please enter the hostname to connect."; exit; }
+[ -f $passdb ] || { echo "Please create the password database file: $passdb."; exit; }
+
+# Fetch user and password.
+source $passdb
+IFS=' ' read -a auth <<< ${SSH_PASS[$host]}
+[ -z $auth ] && { echo "No user and password found for $host."; exit; }
+user=${auth[0]}
+pass=${auth[1]}
+
+$script $host $user $pass

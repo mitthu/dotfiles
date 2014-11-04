@@ -1,0 +1,12 @@
+#!/bin/bash
+# Date of Creation: 04-Nov-2014, 5: 13 pm IST
+# Author: mitthu
+# Config file for script: sshpass
+declare -A SSH_PASS
+
+# Template:
+# SSH_PASS[<IP>]='<USER> <PASS>'
+
+# Examples:
+SSH_PASS[4.4.4.4]='user pass'
+SSH_PASS[8.8.8.8]='username password'

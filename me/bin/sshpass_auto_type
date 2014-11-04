@@ -1,0 +1,17 @@
+#!/usr/bin/expect -f
+# Date of Creation: 04-Nov-2014, 4:21 pm IST
+# Created by: mitthu
+# Source: http://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
+#  ./sshpass_auto_type 192.168.1.11 username password
+
+set server [lrange $argv 0 0]
+set name [lrange $argv 1 1]
+set pass [lrange $argv 2 2]
+
+spawn ssh -o PubkeyAuthentication=no $name@$server
+match_max 100000
+expect "*?assword:*"
+send -- "$pass\r"
+send -- "\r"
+interact
+
