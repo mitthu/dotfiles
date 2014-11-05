@@ -13,7 +13,7 @@ alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
 
 # Misc.
 alias fuck='history | tail -1 | cut -d\   -f4-'
-alias mypublicip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
