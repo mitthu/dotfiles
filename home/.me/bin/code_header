@@ -1,0 +1,41 @@
+#!/bin/bash
+# Addition on: 10-Nov-2014, 05:21: PM IST
+# Added by: mitthu (Aditya Basu)
+
+COMMENT="#"
+DEFAULT_LANG="bash"
+SHEBANG=""
+LANG=""
+
+function header {
+	[[ -z $SHEBANG ]] || echo $SHEBANG
+	local username=`whoami`
+	local fullname=`getent passwd $username | cut -d ':' -f 5 | cut -d ',' -f 1`
+	local name=$username
+	[[ -z $fullname ]] || name="$username ($fullname)"
+	
+	echo $COMMENT" Created on: "`date +'%d-%b-%Y, %I:%M %P %Z'`
+	echo $COMMENT" Added by: "$name
+	echo $COMMENT" Use:"
+	echo -n $COMMENT" - "
+}
+
+LANG=$1
+case $LANG in
+	bash)
+		SHEBANG="#!/bin/bash"
+		COMMENT="#"
+		header $LANG
+		;;
+	c|java)
+		COMMENT="//"
+		header $LANG
+		;;
+	*)
+		# Fall back to bash
+		SHEBANG="#!/bin/bash"
+		COMMENT="#"
+		header bash
+		;;
+esac
+

@@ -14,6 +14,13 @@ function! SourceIfExists(name)
 	endif
 endfunction
 
+" Function: add code header based on lang
+function! CodeHeader(lang)
+    let l:output = system("code_header " . a:lang)
+    let l:output = substitute(l:output, '[\r\n]*$', '', '')
+    execute 'normal i' . l:output
+endfunction
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -112,7 +119,10 @@ let mapleader = ","
 " Bindings
 " --------
 " Insert Date-Time (in insert mode)
-imap <c-d> <ESC>:exec 'normal a'.substitute(system("date +'%a %d-%b-%Y %X %:z (%Z)'"),"[\n]*$","","")<CR>a
+imap <c-d> <ESC>:exec 'normal a'.substitute(system("date +'%d-%b-%Y, %I:%M %P %Z'"),"[\n]*$","","")<CR>a
+imap <c-c><c-b> <ESC>:call CodeHeader("bash")<CR>a
+imap <c-c><c-c> <ESC>:call CodeHeader("c")<CR>a
+imap <c-c><c-j> <ESC>:call CodeHeader("java")<CR>a
 
 " Toggle to upper case
 imap <c-u> <ESC>gUiwi
