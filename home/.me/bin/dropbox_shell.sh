@@ -1,1 +1,1 @@
-../../repos/dropbox_uploader/dropShell.sh
+../../../repos/dropbox_uploader/dropShell.sh

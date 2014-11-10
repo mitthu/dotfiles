@@ -1,1 +1,1 @@
-../../repos/dropbox_uploader/dropbox_uploader.sh
+../../../repos/dropbox_uploader/dropbox_uploader.sh
