@@ -113,6 +113,11 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
+" Macros
+" ------
+"  Surround word by braces
+let @b='i(ea)'
+
 " Setting the leader for mapped commands
 let mapleader = ","
 
