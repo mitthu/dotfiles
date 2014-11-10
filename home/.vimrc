@@ -105,3 +105,26 @@ augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
+
+" Setting the leader for mapped commands
+let mapleader = ","
+
+" Bindings
+" --------
+" Insert Date-Time (in insert mode)
+imap <c-d> <ESC>:exec 'normal a'.substitute(system("date +'%a %d-%b-%Y %X %:z (%Z)'"),"[\n]*$","","")<CR>a
+
+" Toggle to upper case
+imap <c-u> <ESC>gUiwi
+" Toggle to lower case
+imap <c-l> <ESC>guiwi
+
+" Open current file in split view
+nnoremap <leader>h :split %<cr>
+nnoremap <leader>v :vsplit %<cr>
+
+" Resource vimrc
+nmap <silent> <leader><c-r> :so $MYVIMRC<CR>:echo 'Source => ' . $MYVIMRC <CR>
+" Edit vimrc
+nmap <silent> <leader><c-e> :e $MYVIMRC<CR>
+
