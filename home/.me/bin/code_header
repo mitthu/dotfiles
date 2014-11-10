@@ -15,7 +15,8 @@ function header {
 	[[ -z $fullname ]] || name="$username ($fullname)"
 	
 	echo $COMMENT" Created on: "`date +'%d-%b-%Y, %I:%M %P %Z'`
-	echo $COMMENT" Added by: "$name
+	echo $COMMENT" Added by:   "$name
+	echo $COMMENT" ----"
 	echo $COMMENT" Use:"
 	echo -n $COMMENT" - "
 }
