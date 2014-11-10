@@ -8,7 +8,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Function: source a file if it exists
-function SourceIfExists(name)
+function! SourceIfExists(name)
 	if filereadable(glob(a:name))
 		exec 'source '.a:name
 	endif
