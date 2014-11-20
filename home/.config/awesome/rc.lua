@@ -156,7 +156,7 @@ tyrannical.tags = {
 	  --class       = { "Terminal", "xfce4-terminal", "gnome-terminal", "xterm" }
     } ,
     {
-        name        = "Web",
+        name        = "Firefox",
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/pixmaps/firefox.png", -- Use this icon for the tag (uncomment with a real path)
@@ -168,7 +168,7 @@ tyrannical.tags = {
             "Chromium"      , "nightly"        , "minefield"    }
     } ,
     {
-        name        = "Chat",
+        name        = "Chrome",
         init        = true,
         exclusive   = false,
       --icon        = "/usr/share/icons/hicolor/16x16/apps/google-chrome.png", -- Use this icon for the tag (uncomment with a real path)
@@ -180,7 +180,7 @@ tyrannical.tags = {
     } ,
     {
         name = "Mail",
-        init        = true,
+        init        = false,
         exclusive   = false,
         screen      = primary_screen,
         layout      = awful.layout.suit.tile,
@@ -209,17 +209,6 @@ tyrannical.tags = {
         class  = {
             "Music", "Rhythmbox", "Amarok",
         }
-    } ,
-    {
-        name = "Develop",
-        init        = false,
-        exclusive   = false,
-        screen      = primary_screen,
-        clone_on    = 2, -- Create a single instance of this tag on screen 1, but also show it on screen 2
-                         -- The tag can be used on both screen, but only one at once
-        layout      = awful.layout.suit.tile,
-        class ={
-            "Kate", "KDevelop", "Codeblocks", "Code::Blocks" , "DDD", "kate4"}
     } ,
     {
         name        = "Doc",
