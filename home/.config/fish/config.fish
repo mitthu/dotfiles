@@ -48,3 +48,30 @@ alias ts='tmux new-session -s'
 alias ta='tmux attach'
 alias tas='tmux attach -t'
 alias tl='tmux list-sessions'
+
+# Python Helpers
+set PYTHON_VIRTUALENV $HOME/.virtualenv
+# Activate a virtualenv
+function act
+	source $PYTHON_VIRTUALENV/$argv/bin/activate.fish
+end
+# Create a virtualenv
+function venv
+	virtualenv $PYTHON_VIRTUALENV/$argv
+end
+# List all virtualenvs
+function venvls
+	ls $PYTHON_VIRTUALENV
+end
+# Remove virtualenv
+function venvrm
+	echo -n "Are you sure you want to remove $argv (y/N): "
+	read answer
+	switch $answer
+		case y Y yes YES
+			echo "Removing $argv."
+			rm -rf $PYTHON_VIRTUALENV/$argv
+		case '*'
+			echo "Retaining $argv."
+	end
+end
