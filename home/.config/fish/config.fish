@@ -37,8 +37,10 @@ alias st="sshpass"
 ## ssh without using Public Key auth
 alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
 
-# Misc.
+# Network
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias d='dig +noall +answer'
+alias dr='dig +noall +answer -x'
 
 # Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
@@ -56,6 +58,7 @@ alias ga='git add'
 alias gp='git push'
 alias gl='git pull'
 alias gst='git status'
+alias gd='git diff'
 alias gc='git commit'
 alias gsync='git pull & git push'
 
