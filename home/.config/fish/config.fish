@@ -51,6 +51,14 @@ alias ta='tmux attach'
 alias tas='tmux attach -t'
 alias tl='tmux list-sessions'
 
+# Git aliases
+alias ga='git add'
+alias gp='git push'
+alias gl='git pull'
+alias gst='git status'
+alias gc='git commit'
+alias gsync='git pull & git push'
+
 # Python Helpers
 set PYTHON_VIRTUALENV $HOME/.virtualenv
 # Activate a virtualenv
