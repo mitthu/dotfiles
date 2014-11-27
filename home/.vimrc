@@ -41,6 +41,8 @@ filetype plugin indent on    " required
 " --------------------------------------------------------------
 " My Config...
 " --------------------------------------------------------------
+set shell=bash    " Syntastic (vim's syntax checker) doesn't play
+                  " nice with the fish shell.
 set whichwrap+=<,>,h,l,[,] " Wrap cursor against line boundaries
 set number
 set tabstop=4
