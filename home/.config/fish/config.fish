@@ -1,8 +1,10 @@
 # Globals
 # -------
-set -U EDITOR gvim
-set -U PATH $PATH $HOME/.me/bin /usr/java/jdk1.7.0_67/bin
+set -Ux EDITOR vim
+set -Ux PATH $PATH $HOME/.me/bin /usr/java/jdk1.7.0_67/bin
 set -U TERM xterm-256color
+# Show proper colors via less
+set -x LESS -FRSX
 
 # Aliases
 # -------
