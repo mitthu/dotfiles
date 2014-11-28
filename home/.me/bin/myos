@@ -24,11 +24,12 @@ if [[ $platform == 'linux' ]]; then
 		issue=`cat /etc/issue | cut -d\  -f1`
 	fi
 
+	# Always put it in if...else ladder. Order matters!
 	if [[ -f /etc/slackware-version ]]; then
 		distro='slackware'
-	elif [ $issue == 'Debian' ]; then
+	elif [[ $issue == 'Debian' ]]; then
 		distro='debian'
-	elif [ $issue == 'CentOS' ]; then
+	elif [[ $issue == 'CentOS' ]]; then
 		distro='centos'
 	fi
 fi
