@@ -1,0 +1,59 @@
+#!/bin/bash
+# Date of creation: 28-Nov-2014, 5:00 PM
+# Author: mitthu
+# Job:
+# ---
+# Determine the OS and Distro of the current system.
+
+platform='unknown'
+distro='unknown'
+
+# Determine the OS type: linux/freebsd.
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+fi
+
+# Determine the distro, if linux.
+if [[ $platform == 'linux' ]]; then
+	# Read the issue file, if exists.
+	issue='unknown'
+	if [[ -f /etc/issue ]]; then
+		issue=`cat /etc/issue | cut -d\  -f1`
+	fi
+
+	if [[ -f /etc/slackware-version ]]; then
+		distro='slackware'
+	elif [ $issue == 'Debian' ]; then
+		distro='debian'
+	elif [ $issue == 'CentOS' ]; then
+		distro='centos'
+	fi
+fi
+
+case $1 in
+	'')
+		echo $platform $distro
+		;;
+	os|platform)
+		echo $platform
+		;;
+	distro|type)
+		echo $distro
+		;;
+	help|*)
+		echo "$0:"
+		echo "  |==============================================================|"
+		echo "  |                    {Determine OS Type}                       |"
+		echo "  |==============================================================|"
+		echo "  | Option          | Description                                |"
+		echo "  | -------------------------------------------------------------|"
+		echo "  | <no option>     | emit os + distro, ex. linux slackware      |"
+		echo "  | os / platform   | os type, ex. linux, freebsd                |"
+		echo "  | distro / type   | os sub-type, ex. slackware, debian, centos |"
+		echo "  | help            | display this menu                          |"
+		echo "  |==============================================================|"
+		;;
+esac
