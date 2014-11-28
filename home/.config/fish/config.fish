@@ -1,8 +1,8 @@
-# Globals
-# -------
-set -Ux EDITOR vim
-set -Ux PATH $PATH $HOME/.me/bin /usr/java/jdk1.7.0_67/bin
-set -U TERM xterm-256color
+# Environment Variables
+# ---------------------
+set -x EDITOR vim
+set -x PATH $PATH $HOME/.me/bin /usr/java/jdk1.7.0_67/bin
+set -x TERM xterm-256color
 # Show proper colors via less
 set -x LESS -FRSX
 
