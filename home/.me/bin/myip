@@ -32,8 +32,17 @@ case $1 in
 	''|all)
 		ip_all
 		;;
-	help)
-		echo "$1 options:"
+	allspaced)
+		ip_all_spaced
+		;;
+	all-nolocal)
+		ip_list
+		;;
+	allspaced-nolocal)
+		ip_list_spaced
+		;;
+	*|help)
+		echo "$0 options:"
 		echo "  -----------------------------------------------------------------------"
 		echo "  Option            | Description"
 		echo "  -----------------------------------------------------------------------"
