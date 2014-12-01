@@ -28,6 +28,14 @@ function ip_list_spaced {
 	ip_list | tr "\n" "\ "
 }
 
+function ip_internal {
+	ip_list | egrep ":172.|:192.|:10.100."
+}
+
+function ip_external {
+	ip_list | egrep -v ":172.|:192.|:10.100."
+}
+
 case $1 in
 	''|all)
 		ip_all
@@ -41,14 +49,23 @@ case $1 in
 	allspaced-nolocal)
 		ip_list_spaced
 		;;
+	internal)
+		ip_internal
+		;;
+	external)
+		ip_external
+		;;
 	*|help)
 		echo "$0 options:"
-		echo "  -----------------------------------------------------------------------"
+		echo "  -------------------------------------------------------------------------"
 		echo "  Option            | Description"
-		echo "  -----------------------------------------------------------------------"
+		echo "  -------------------------------------------------------------------------"
 		echo "  NONE or all       | list all IPs, new line separated"
 		echo "  allspaced         | list all IPs, space separated"
 		echo "  all-nolocal       | same as -all-, execpt don't list interface -lo-"
 		echo "  allspaced-nolocal | same as -allspaced-, execpt don't list interface -lo-"
+		echo "  internal          | list all internal IPs, new line seperated"
+		echo "  external          | list all external IPs, new line seperated"
+		echo "  -------------------------------------------------------------------------"
 		;;
 esac
