@@ -18,10 +18,14 @@ case $1 in
 	stop)
 		sudo pkill -f "$CMD" || { echo "Stop failed. The process ID is/are:" && pgrep -f "$CMD"; }
 		;;
+	list)
+		ps auxx | grep "$CMD" | grep -v 'grep'
+		;;
 	help|*)
 		echo "Usage: $0"
 		echo "start:   Start rsync daemon"
 		echo "stop:    Stop rsync daemon"
+		echo "list:    List the rsync daemon process"
 		echo "help:    Display this menu"
 		;;
 esac
