@@ -5,19 +5,18 @@
 # Use:
 # - Run rsync daemon to copy files from another server.
 
-CMD="sudo rsync --config=$HOME/.me/resources/rsyncd.conf --daemon"
+CMD="rsync --config=$HOME/.me/resources/rsyncd.conf --daemon"
 
 case $1 in
 	start)
-		[ `$CMD` ] || exit
+		sudo $CMD || exit
 		echo 'Client command:'
 		echo '--------------'
 		echo 'SRC=src; DEST=dest'
 		echo 'sudo rsync -avr --progress "$LOCATION" "rsync://IP/r/$DEST"'
 		;;
 	stop)
-		sudo pkill -f "$CMD"
-		[[ -z `pgrep -f "$CMD"` ]] || echo "Stop failed. The process ID is/are:" && pgrep -f "$CMD"
+		sudo pkill -f "$CMD" || { echo "Stop failed. The process ID is/are:" && pgrep -f "$CMD"; }
 		;;
 	help|*)
 		echo "Usage: $0"
