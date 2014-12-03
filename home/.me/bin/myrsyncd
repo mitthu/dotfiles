@@ -13,7 +13,7 @@ case $1 in
 		echo 'Client command:'
 		echo '--------------'
 		echo 'SRC=src; DEST=dest'
-		echo 'sudo rsync -avr --progress "$LOCATION" "rsync://IP/r/$DEST"'
+		echo 'sudo rsync -avr --progress "$SRC" "rsync://IP/r/$DEST"'
 		;;
 	stop)
 		sudo pkill -f "$CMD" || { echo "Stop failed. The process ID is/are:" && pgrep -f "$CMD"; }
