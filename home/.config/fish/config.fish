@@ -6,6 +6,9 @@ set -x TERM xterm-256color
 # Show proper colors via less
 set -x LESS -FRSX
 
+# Source files in .melocal
+source $HOME/.melocal/*.fish
+
 # Aliases
 # -------
 # Resource dotfiles
