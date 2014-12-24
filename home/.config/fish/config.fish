@@ -7,7 +7,7 @@ set -x TERM xterm-256color
 set -x LESS -FRSX
 
 # Source files in .melocal
-source $HOME/.melocal/*.fish
+. $HOME/.melocal/*.fish
 
 # Aliases
 # -------
