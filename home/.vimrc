@@ -21,6 +21,20 @@ function! CodeHeader(lang)
     execute 'normal i' . l:output
 endfunction
 
+" Function: indent using tabs
+function! IndentWithTab()
+	set softtabstop=4 " #columns vim uses for tab
+	set shiftwidth=4  " #spaces to use for autoindenting
+	set noexpandtab   " indent using tab
+endfunction
+
+" Function: indent using spaces
+function! IndentWithSpace()
+	set softtabstop=2 " #columns vim uses for tab
+	set shiftwidth=2  " #spaces to use for autoindenting
+	set expandtab     " indent using space
+endfunction
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -139,6 +153,10 @@ imap <c-l> <ESC>guiwi
 " Open current file in split view
 nnoremap <leader>h :split %<cr>
 nnoremap <leader>v :vsplit %<cr>
+
+" Switch spaces
+nnoremap <leader>s :call IndentWithSpace()<cr>
+nnoremap <leader>t :call IndentWithTab()<cr>
 
 " Resource vimrc
 nmap <silent> <leader><c-r> :so $MYVIMRC<CR>:echo 'Source => ' . $MYVIMRC <CR>
