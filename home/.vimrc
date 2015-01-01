@@ -163,3 +163,5 @@ nmap <silent> <leader><c-r> :so $MYVIMRC<CR>:echo 'Source => ' . $MYVIMRC <CR>
 " Edit vimrc
 nmap <silent> <leader><c-e> :e $MYVIMRC<CR>
 
+" Lang specific actions
+autocmd FileType yaml		call IndentWithSpace()
