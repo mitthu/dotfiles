@@ -69,7 +69,7 @@ alias gsync='git pull & git push'
 set PYTHON_VIRTUALENV $HOME/.virtualenv
 # Activate a virtualenv
 function act
-	source $PYTHON_VIRTUALENV/$argv/bin/activate.fish
+	. $PYTHON_VIRTUALENV/$argv/bin/activate.fish
 end
 # Create a virtualenv
 function venv
