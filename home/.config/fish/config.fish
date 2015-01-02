@@ -24,7 +24,7 @@ alias ar-="sudo apt-get purge"
 alias apts="apt-cache search"
 
 # Homeshick utils
-alias hs="$HOME/.homesick/repos/homeshick/bin/homeshick"
+. $HOME/.homesick/repos/homeshick/homeshick.fish
 
 # Vim: Vundle - Silently install bundles
 alias vundle-install="vim +BundleInstall +qall"
