@@ -6,6 +6,7 @@
 # Requirements:
 # - expect
 # - oathtool
+# - openvpn
 
 proc otp {secret}     {
     spawn -noecho oathtool --totp -b $secret 
@@ -15,12 +16,12 @@ proc otp {secret}     {
 }
 
 # Set the base location for configs
-set vpn(base) $::env(HOME)
+set vpn(config_files_base) $::env(HOME)/.me/config/vpn
 
 # Source necessary configuration
-source [lrange $argv 0 0]
+source "$::vpn(config_files_base)/[lrange $argv 0 0].exp"
 
-set config $::vpn(config)
+set config $::env(HOME)/$::vpn(config)
 set user $::vpn(user)
 set pass $::vpn(pass)
 set secret $::vpn(secret)
