@@ -21,7 +21,7 @@ set vpn(config_files_base) $::env(HOME)/.me/config/vpn
 # Source necessary configuration
 source "$::vpn(config_files_base)/[lrange $argv 0 0].exp"
 
-set config $::env(HOME)/$::vpn(config)
+set config $::vpn(config_files_base)/$::vpn(config)
 set user $::vpn(user)
 set pass $::vpn(pass)
 set secret $::vpn(secret)
