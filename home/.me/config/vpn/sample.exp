@@ -1,0 +1,4 @@
+set vpn(config) $::vpn(base)/**config.ovpn**
+set vpn(user) **username**
+set vpn(pass) **password**
+set vpn(secret) **google auth code**

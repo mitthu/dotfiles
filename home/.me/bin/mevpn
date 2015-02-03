@@ -1,0 +1,37 @@
+#!/usr/bin/expect -f
+# Date of Creation: 03-Feb-2015, 4:00 pm IST
+# Created by: mitthu
+# Usage:
+#     mevpn vpnconfig.exp
+# Requirements:
+# - expect
+# - oathtool
+
+proc otp {secret}     {
+    spawn -noecho oathtool --totp -b $secret 
+    log_user 0
+    expect eof
+    return $expect_out(buffer)
+}
+
+# Set the base location for configs
+set vpn(base) $::env(HOME)
+
+# Source necessary configuration
+source [lrange $argv 0 0]
+
+set config $::vpn(config)
+set user $::vpn(user)
+set pass $::vpn(pass)
+set secret $::vpn(secret)
+
+spawn sudo openvpn --config $config
+match_max 100000
+expect "*Auth Username*"
+send -- "$user\r"
+expect "*?assword:*"
+send -- "$pass\r"
+expect "*?esponse:*"
+send -- "[otp $secret]\r"
+interact
+
