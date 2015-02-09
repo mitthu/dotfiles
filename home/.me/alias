@@ -25,3 +25,7 @@ alias ts='tmux new-session -s'
 alias ta='tmux attach'
 alias tas='tmux attach -t'
 alias tl='tmux list-sessions'
+
+# Academics
+alias define='dict -d wn'
+alias thrus='dict -d moby-thesaurus'

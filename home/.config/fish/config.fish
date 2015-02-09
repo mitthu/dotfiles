@@ -9,6 +9,9 @@ set -x LESS -FRSX
 # Source files in .melocal
 . $HOME/.melocal/*.fish
 
+# Source aliases
+. $HOME/.me/alias
+
 # Aliases
 # -------
 # Resource dotfiles
