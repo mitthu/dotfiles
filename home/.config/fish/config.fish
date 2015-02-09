@@ -94,3 +94,9 @@ function venvrm
 			echo "Retaining $argv."
 	end
 end
+# Pronunce dictionary word
+# Source: http://askubuntu.com/questions/170775/offline-dictionary-with-pronunciation-and-usages
+function defp
+	espeak -ven-uk-rp -x -s 120 "$argv" -> /dev/null &
+	def "$argv"
+end
