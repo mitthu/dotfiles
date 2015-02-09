@@ -6,6 +6,7 @@
 # Common library-like header for my bash scripts
 
 ME="$HOME/.me"
+source "$ME/alias"
 
 platform='unknown'
 unamestr=`uname`
@@ -34,3 +35,10 @@ function print_colors {
 	done
 }
 
+# Pronounce word using phonetics
+function defp {
+	# espeak for the pronunciation audible output and phonetic alphabet string
+	echo "Phoneme mnemonics: $(espeak -ven-uk-rp -x -s 120 "$1" 2> /dev/null)"
+	# dict - the client for the dictionary server
+	def "$1"
+}
