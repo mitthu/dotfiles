@@ -6,38 +6,16 @@ source $HOME/.me/include
 
 # Update path location
 export PATH=$PATH:~/.me/bin:~/.bin
-export PATH=$PATH:/usr/java/jdk1.7.0_67/bin
+export PATH=$PATH:/usr/java/default/bin
+
 # Add support for 256 colors
 export TERM=xterm-256color
+
 # Set the default editor as vim
 export EDITOR=vim
-
-# Alias
-# -----
-# Re-source my dots
-alias re-source="source $HOME/.merc"
-
-# Set gnome terminal color scheme
-alias dark="source $ME/others/terminal_solarized/set_dark.sh"
-alias light="source $ME/others/terminal_solarized/set_light.sh"
-
-# Packages
-alias au="sudo apt-get update"
-alias au+="sudo apt-get upgrade"
-alias ai="sudo apt-get install"
-alias ar="sudo apt-get remove"
-alias ar-="sudo apt-get purge"
-alias apts="apt-cache search"
-
-# Homeshick utils
-alias hs="homeshick"
-
-# Vim: Vundle - Silently install bundles
-alias vundle-install="vim +BundleInstall +qall"
 
 # Source all the local bash rc's
 source ~/.melocal/*
 
 # Unset all temperory variables
 unset_me
-

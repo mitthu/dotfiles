@@ -3,6 +3,17 @@
 # Editors
 alias e="vim"
 
+# Re-source my dots
+alias re-source="source $HOME/.merc"
+
+# Packages
+alias au="sudo apt-get update"
+alias au+="sudo apt-get upgrade"
+alias ai="sudo apt-get install"
+alias ar="sudo apt-get remove"
+alias ar-="sudo apt-get purge"
+alias apts="apt-cache search"
+
 # Login helpers
 ## ssh as my user
 alias s="ssh -l aditya.ba"
@@ -12,10 +23,16 @@ alias st="sshpass"
 alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
 
 # Misc.
-alias fuck='history | tail -1 | cut -d\   -f4-'
+## Run last command with sudo privilege (only zsh compatible)
+alias suhistory='history | tail -1 | cut -d\   -f4-'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# Copy and paste (originally Mac commands)
+## Homeshick utils
+alias hs="homeshick"
+## Vim: Vundle - Silently install bundles
+alias vundle-install="vim +BundleInstall +qall"
+
+## Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
 alias lpaste='xsel --clipboard --output'
 
