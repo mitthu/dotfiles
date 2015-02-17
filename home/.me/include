@@ -4,7 +4,6 @@ source ~/.me/common
 source $ME/alias
 
 # Include modules
-source $ME/modules/ip
 source $ME/modules/remote_file_transfer
 source $ME/modules/update
 source $ME/modules/prompt
