@@ -2,8 +2,10 @@
 
 # Editors
 alias e="vim"
+alias v="gvim"
 
-# Re-source my dots
+# Re-source my dots (only for bash/zsh)
+# This alias is over-written in config of fish shell.
 alias re-source="source $HOME/.merc"
 
 # Packages
@@ -22,20 +24,6 @@ alias st="sshpass"
 ## ssh without using Public Key auth
 alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
 
-# Misc.
-## Run last command with sudo privilege (only zsh compatible)
-alias suhistory='history | tail -1 | cut -d\   -f4-'
-alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
-
-## Homeshick utils
-alias hs="homeshick"
-## Vim: Vundle - Silently install bundles
-alias vundle-install="vim +BundleInstall +qall"
-
-## Copy and paste (originally Mac commands)
-alias lcopy='xsel --clipboard --input'
-alias lpaste='xsel --clipboard --output'
-
 # Tmux aliases
 alias tmux='tmux -u'
 alias ts='tmux new-session -s'
@@ -46,3 +34,30 @@ alias tl='tmux list-sessions'
 # Academics
 alias def='dict -d wn'
 alias thrus='dict -d moby-thesaurus'
+
+# Git aliases
+alias ga='git add'
+alias gp='git push'
+alias gl='git pull'
+alias gst='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias gsync='git pull & git push'
+
+# Network
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias d='dig +noall +answer'
+alias dr='dig +noall +answer -x'
+
+# Misc.
+## Run last command with sudo privilege (only zsh compatible)
+alias suhistory='history | tail -1 | cut -d\   -f4-'
+
+## Homeshick utils
+alias hs="homeshick"
+## Vim: Vundle - Silently install bundles
+alias vundle-install="vim +BundleInstall +qall"
+
+## Copy and paste (originally Mac commands)
+alias lcopy='xsel --clipboard --input'
+alias lpaste='xsel --clipboard --output'

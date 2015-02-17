@@ -9,64 +9,12 @@ set -x LESS -FRSX
 # Source files in .melocal
 . $HOME/.melocal/*.fish
 
-# Source aliases
-. $HOME/.me/alias
-
 # Aliases
-# -------
-# Resource dotfiles
-alias re-source="source $HOME/.config/fish/config.fish"
-alias v="gvim"
-
-# Packages
-alias au="sudo apt-get update"
-alias au+="sudo apt-get upgrade"
-alias ai="sudo apt-get install"
-alias ar="sudo apt-get remove"
-alias ar-="sudo apt-get purge"
-alias apts="apt-cache search"
+. $HOME/.me/alias
+alias re-source=". $HOME/.config/fish/config.fish"
 
 # Homeshick utils
 . $HOME/.homesick/repos/homeshick/homeshick.fish
-
-# Vim: Vundle - Silently install bundles
-alias vundle-install="vim +BundleInstall +qall"
-
-# Editors
-alias e="vim"
-
-# Login helpers
-## ssh as my user
-alias s="ssh -l aditya.ba"
-## ssh using automatic password typing
-alias st="sshpass"
-## ssh without using Public Key auth
-alias ssh-no-pk="ssh -o PubkeyAuthentication=no"
-
-# Network
-alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias d='dig +noall +answer'
-alias dr='dig +noall +answer -x'
-
-# Copy and paste (originally Mac commands)
-alias lcopy='xsel --clipboard --input'
-alias lpaste='xsel --clipboard --output'
-
-# Tmux aliases
-alias tmux='tmux -u'
-alias ts='tmux new-session -s'
-alias ta='tmux attach'
-alias tas='tmux attach -t'
-alias tl='tmux list-sessions'
-
-# Git aliases
-alias ga='git add'
-alias gp='git push'
-alias gl='git pull'
-alias gst='git status'
-alias gd='git diff'
-alias gc='git commit'
-alias gsync='git pull & git push'
 
 # Python Helpers
 set PYTHON_VIRTUALENV $HOME/.virtualenv
