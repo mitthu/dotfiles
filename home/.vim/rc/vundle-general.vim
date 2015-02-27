@@ -18,3 +18,6 @@ Bundle 'scrooloose/nerdtree'
 
 " Git wrapper
 Plugin 'tpope/vim-fugitive'
+
+" Ansible yaml support
+Bundle 'chase/vim-ansible-yaml'
