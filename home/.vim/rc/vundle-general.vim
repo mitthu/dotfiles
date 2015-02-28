@@ -21,3 +21,6 @@ Plugin 'tpope/vim-fugitive'
 
 " Ansible yaml support
 Bundle 'chase/vim-ansible-yaml'
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
