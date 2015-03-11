@@ -1,0 +1,9 @@
+#!/bin/bash
+# Created on: 11-Mar-2015, 06:14 pm IST
+# Added by:   mitthu (Aditya Basu)
+# ----
+# Use:
+# - Make ping use my hosts file.
+# - Preferable if passwordless sudo is setup. Else all pings require password.
+
+sudo HOSTALIASES=$HOSTALIASES ping $@
