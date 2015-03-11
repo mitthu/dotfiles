@@ -17,6 +17,9 @@ export EDITOR=vim
 # Misc.
 export TZ=Asia/Kolkata
 
+# Personal hosts file
+export HOSTALIASES=~/.hosts
+
 # Source all the local bash rc's
 source ~/.melocal/*
 
