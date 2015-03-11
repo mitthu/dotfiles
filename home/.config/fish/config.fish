@@ -1,7 +1,7 @@
 # Environment Variables
 # ---------------------
 set -x EDITOR vim
-set -x PATH $PATH $HOME/.me/bin $HOME/.bin /usr/java/default/bin $HOME/node_modules/.bin
+set -x PATH $HOME/.me/bin $PATH $HOME/.bin /usr/java/default/bin $HOME/node_modules/.bin
 set -x TERM xterm-256color
 set -x TZ Asia/Kolkata
 set -x HOSTALIASES ~/.hosts
