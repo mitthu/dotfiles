@@ -165,3 +165,4 @@ nmap <silent> <leader><c-e> :e $MYVIMRC<CR>
 
 " Lang specific actions
 autocmd FileType yaml		call IndentWithSpace()
+autocmd FileType ruby		call IndentWithSpace()
