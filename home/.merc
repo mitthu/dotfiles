@@ -5,7 +5,7 @@
 source $HOME/.me/include
 
 # Update path location
-export PATH=~/.me/bin:$PATH:~/.bin
+export PATH=~/.me/bin:$PATH:~/.bin:~/.local/bin
 export PATH=$PATH:/usr/java/default/bin
 
 # Add support for 256 colors
