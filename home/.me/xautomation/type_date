@@ -1,0 +1,10 @@
+#!/bin/bash
+# Created on: 5-Mar-2015
+# Added by:   mitthu (Aditya Basu)
+# ----
+# Use:
+# - Auto type date of addition in X windows.
+
+win=`xdotool getwindowfocus`
+typeout="Date of Addition: "`date +"%-d-%b-%Y, %-l:%M %P %Z"`
+xdotool type --window $win "$typeout"
