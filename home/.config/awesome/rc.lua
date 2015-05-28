@@ -59,6 +59,7 @@ require("debian.menu")
 
 -- Plugins
 local tyrannical = require("tyrannical")
+require("eminent")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
