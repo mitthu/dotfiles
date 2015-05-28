@@ -18,7 +18,7 @@ local vicious = require("vicious")
 -- {{{ Battery state
 -- Text widget
 batwidget_text = wibox.widget.textbox()
-vicious.register(batwidget_text, vicious.widgets.bat, " Battery ($1) : $2% ", 61, "BAT0")
+vicious.register(batwidget_text, vicious.widgets.bat, " | $1: $2% ", 61, "BAT0")
 -- Progress bar
 batwidget = awful.widget.progressbar()
 batwidget:set_width(8)
@@ -26,13 +26,13 @@ batwidget:set_height(10)
 batwidget:set_vertical(true)
 batwidget:set_background_color("#494B4F")
 batwidget:set_border_color(nil)
---batwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 0, 10 },
---    stops = { { 0, "#AECF96" }, { 0.5, "#88A175" }, { 1, "#FF5656" }}})
+batwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 0, 10 },
+    stops = { { 0, "#AECF96" }, { 0.5, "#88A175" }, { 1, "#FF5656" }}})
 vicious.register(batwidget, vicious.widgets.bat, "$2", 61, "BAT0")
 
 -- {{{ Memory
 memwidget = wibox.widget.textbox()
-vicious.register(memwidget, vicious.widgets.mem, "$1% ($2MB/$3MB)", 13)
+vicious.register(memwidget, vicious.widgets.mem, "䷀ $1%", 13)
 
 -- {{{ CPU
 cpuwidget = awful.widget.graph()
@@ -48,8 +48,8 @@ volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume,
   function(widget, args)
     local label = { ["♫"] = "O", ["♩"] = "M" }
-    return " Volume: " .. args[1] .. "% State: " .. label[args[2]]
-  end, 2, "PCM")
+    return " | ♫: " .. args[1] .. "%, " .. label[args[2]] .. " | "
+  end, 2, "Master")
 
 -- Vicious Widgets                                                       |
 ---+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -368,10 +368,10 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(cpuwidget)
+    --right_layout:add(cpuwidget)
     right_layout:add(memwidget)
     right_layout:add(batwidget_text)
-    right_layout:add(batwidget)
+    --right_layout:add(batwidget)
     right_layout:add(volumewidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
@@ -485,17 +485,17 @@ globalkeys = awful.util.table.join(
     --------------
     -- Volumn control
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-       awful.util.spawn("amixer set Master 7%+", false) end),
+       awful.util.spawn("amixer -D pulse sset Master 8%+", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-       awful.util.spawn("amixer set Master 7%-", false) end),
+       awful.util.spawn("amixer -D pulse sset Master 8%-", false) end),
     awful.key({ }, "XF86AudioMute", function ()
-       awful.util.spawn("amixer set Master toggle", false) end),
+       awful.util.spawn("amixer -D pulse sset Master toggle", false) end),
 
     -- Brightness control
     awful.key({ }, "XF86MonBrightnessDown", function ()
-       awful.util.spawn("xbacklight -dec 10", false) end),
+       awful.util.spawn("xbacklight -dec 40", false) end),
     awful.key({ }, "XF86MonBrightnessUp", function ()
-       awful.util.spawn("xbacklight -inc 10", false) end),
+       awful.util.spawn("xbacklight -inc 40", false) end),
 
     -- Running programs
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xscreensaver-command -lock") end),
@@ -689,7 +689,7 @@ client.connect_signal("manage", function (c, startup)
         end
     end
 
-    local titlebars_enabled = true
+    local titlebars_enabled = false
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
         -- buttons for the titlebar
         local buttons = awful.util.table.join(
