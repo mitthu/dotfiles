@@ -501,6 +501,8 @@ globalkeys = awful.util.table.join(
     -- Running programs
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "z", function() awful.util.spawn("xtrlock") end),
+    awful.key({ modkey, "Shift"   }, "s", function() awful.util.spawn("sudo pm-suspend") end),
+    awful.key({ modkey, "Control"   }, "c", function() awful.util.spawn("google-chrome --disable-gpu") end),
 
     -- Misc
     -- ====
