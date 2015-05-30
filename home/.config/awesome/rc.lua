@@ -145,7 +145,7 @@ end
 all_screens      = {1, 2}
 primary_screen   = 1
 secondary_screen = screen.count()>1 and 2 or 1 -- Setup on screen 2 if there is more than 1 screen, else on screen 1
-tyrannical.tags = {
+tyrannical.tags_disable = {
     {
         name        = "Term",                 -- Call the tag "Term"
       --icon        = "/usr/share/pixmaps/xfce4-terminal.xpm", -- Use this icon for the tag
@@ -254,15 +254,15 @@ tyrannical.settings.block_children_focus_stealing = true --Block popups ()
 tyrannical.settings.group_children = true --Force popups/dialogs to have the same tags as the parent client
 
 -- Default Config
--- tags = {
--- 	names = {"1) main", "2) terminal", "3) mail", "4) go.to", "5) firefox", 6, 7, 8, 9 },
--- 	layout = layouts[2]
--- }
--- for s = 1, screen.count() do
---     -- Each screen has its own tag table.
---     tags[s] = awful.tag(tags.names, s, tags.layout)
--- end
--- }}}
+tags = {
+	names = {"1", "2", "3", "4", "5", 6, 7, 8, 9 },
+	layout = layouts[2]
+}
+for s = 1, screen.count() do
+    -- Each screen has its own tag table.
+    tags[s] = awful.tag(tags.names, s, tags.layout)
+end
+---}}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
