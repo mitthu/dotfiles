@@ -59,6 +59,7 @@ require("debian.menu")
 
 -- Plugins
 local tyrannical = require("tyrannical")
+local scratch = require("scratch")
 require("eminent")
 
 -- {{{ Error handling
@@ -502,7 +503,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "z", function() awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "z", function() awful.util.spawn("xtrlock") end),
     awful.key({ modkey, "Shift"   }, "s", function() awful.util.spawn("sudo pm-suspend") end),
-    awful.key({ modkey, "Control"   }, "c", function() awful.util.spawn("google-chrome --disable-gpu") end),
+    awful.key({ modkey, "Control" }, "c", function() awful.util.spawn("google-chrome --disable-gpu") end),
+    awful.key({ modkey,           }, "0", function() scratch.drop(terminal, "top", "center", 1, 1, true) end),
 
     -- Misc
     -- ====
