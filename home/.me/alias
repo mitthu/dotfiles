@@ -44,6 +44,14 @@ alias gd='git diff'
 alias gc='git commit'
 alias gsync='git pull --silent --rebase & git push'
 
+# Docker
+# Delete all stopped containers.
+alias dkc="docker rm (docker ps -a -q)"
+# Delete all untagged images.
+alias dki="docker rmi (docker images -q -f dangling=true)"
+# Delete all stopped containers and untagged images.
+alias dkclean="dkc; dki"
+
 # Network
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias d='dig +noall +answer'
