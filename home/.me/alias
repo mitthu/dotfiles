@@ -46,11 +46,11 @@ alias gsync='git pull --silent --rebase & git push'
 
 # Docker
 # Delete all stopped containers.
-alias dkc="docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm"
+alias dkdelc="docker ps -a | grep 'Exited' | cut -f1 -d\  | xargs --no-run-if-empty docker rm"
 # Delete all untagged images.
-alias dki="docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi"
+alias dkdeli="docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi"
 # Delete all stopped containers and untagged images.
-alias dkrm="dkc; dki"
+alias dkdel="dkc; dki"
 
 # Network
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
