@@ -45,6 +45,10 @@ alias gc='git commit'
 alias gsync='git pull --silent --rebase & git push'
 
 # Docker
+# List docker containers
+alias dkps="docker ps"
+# List docker images
+alias dkimg="docker images"
 # Delete all stopped containers.
 alias dkdelc="docker ps -a | grep 'Exited' | cut -f1 -d\  | xargs --no-run-if-empty docker rm"
 # Delete all untagged images.

@@ -51,3 +51,8 @@ function defp
 	espeak -ven-uk-rp -x -s 120 "$argv" -> /dev/null &
 	def "$argv"
 end
+# Stop and delete a container
+function dkrm
+	docker stop $argv
+	docker rm $argv
+end
