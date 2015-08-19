@@ -56,3 +56,7 @@ function dkrm
 	docker stop $argv
 	docker rm $argv
 end
+# Exec bash on docker container
+function dkexec
+	docker exec -it $argv /bin/bash
+end
