@@ -93,7 +93,7 @@ end
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or "editor"
 home = os.getenv("HOME")
 editor_cmd = terminal .. " -e " .. editor
@@ -102,11 +102,20 @@ editor_cmd = terminal .. " -e " .. editor
 -- Kill old instances on awesome config reload
 awful.util.spawn_with_shell("killall nm-applet; nm-applet", false)
 awful.util.spawn_with_shell("killall xscreensaver; xscreensaver -nosplash", false)
-awful.util.spawn(home.."/.dropbox-dist/dropboxd", false)
 
+-- Autostart from desktop entries
+awful.util.spawn("dex -a -e Awesome", false)
+
+-- {{{ Disabled startup applications
 -- Start terminal and start/attach to a tmux session
 --awful.util.spawn(terminal .. ' -e="' .. os.getenv("HOME") .. '/.me/bin_hidden/start_tmux"')
+
+-- Start the Flock chrome extension
 --awful.util.spawn("google-chrome-stable chrome-extension://enfaahabcinohafeakbliimmoholjeip/pingpong/apps/shell/index.html#__platform=CHROME-EXTENSION&finger-print=a5cb13be-49d5-4f25-8aef-7150b225b882")
+
+-- Start dropboxd from HOME folder
+--awful.util.spawn(home.."/.dropbox-dist/dropboxd", false)
+-- }}}
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
