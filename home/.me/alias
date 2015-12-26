@@ -62,6 +62,7 @@ alias d='dig +noall +answer'
 alias dr='dig +noall +answer -x'
 
 # Misc.
+alias p="playwire.py"
 ## Run last command with sudo privilege (only zsh compatible)
 alias suhistory='history | tail -1 | cut -d\   -f4-'
 ## Get cpu frequency
