@@ -32,7 +32,7 @@ expect "*Auth Username*"
 send -- "$user\r"
 expect "*?assword:*"
 send -- "$pass\r"
-expect "*?esponse:*"
+expect "*Authenticator*"
 send -- "[otp $secret]\r"
 interact
 
