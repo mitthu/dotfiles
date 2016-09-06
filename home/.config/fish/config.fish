@@ -9,9 +9,6 @@ set -x HOSTALIASES ~/.hosts
 # Show proper colors via less
 set -x LESS -FRSX
 
-# Source files in .melocal
-. $HOME/.melocal/*.fish
-
 # Aliases
 . $HOME/.me/alias
 alias re-source=". $HOME/.config/fish/config.fish"
@@ -60,3 +57,8 @@ end
 function dkexec
 	docker exec -it $argv /bin/bash
 end
+
+# Source files in .melocal
+# These take precedence over aliases.
+. $HOME/.melocal/*.fish
+
