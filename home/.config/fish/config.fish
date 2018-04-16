@@ -1,10 +1,41 @@
 # Environment Variables
 # ---------------------
 set -x EDITOR vim
-set -x PATH $HOME/.me/bin $PATH $HOME/.bin /usr/java/default/bin $HOME/node_modules/.bin $HOME/.local/bin $HOME/apps/packer
 set -x TERM xterm-256color
 set -x TZ Asia/Kolkata
 set -x HOSTALIASES ~/.hosts
+
+# Setup PATH
+# Function: add_before_path => Prefix/Prepend path with directory (if it exists)
+# Note: This function variant can add multiple directories at once.
+function add_before_path -d "add_before_path /foo /bar ..."
+	# iterate over all arguments
+	for i in (seq 1 (count $argv))
+		# if directory exists, add it to $PATH
+		if test -d $argv[$i]
+			set -x PATH $argv[$i] $PATH
+		end
+	end
+end
+
+# Function: add_after_path => Suffix/Append path with directory (if it exists)
+# Note: Only one directory at a time.
+function add_after_path -d "add_after_path /foo"
+	if test -d $1
+		set -x PATH $PATH $1
+	end
+end
+
+# Update $PATH: load my bin/ locations
+add_before_path $HOME/.me/bin
+add_before_path $HOME/.local/bin
+add_before_path $HOME/.bin
+add_before_path $HOME/bin
+
+# Update $PATH: misc.
+add_after_path /usr/java/default/bin
+add_after_path $HOME/node_modules/.bin
+add_after_path $HOME/apps/packer
 
 # Show proper colors via less
 set -x LESS -FRSX
