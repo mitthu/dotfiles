@@ -2,7 +2,6 @@
 # ---------------------
 set -x EDITOR vim
 set -x TERM xterm-256color
-set -x TZ Asia/Kolkata
 set -x HOSTALIASES ~/.hosts
 
 # Setup PATH
