@@ -90,5 +90,7 @@ end
 
 # Source files in .melocal
 # These take precedence over aliases.
-. $HOME/.melocal/*.fish
+for file in $HOME/.melocal/*.fish
+	. $file
+end
 
