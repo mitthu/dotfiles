@@ -11,3 +11,14 @@
 " language for vim 7.
 " Source: http://www.vim.org/scripts/script.php?script_id=1785
 Bundle 'javacomplete'
+
+" C/C++/Objective-C/Objective-C++ auto-complete.
+" Source: http://www.vim.org/scripts/script.php?script_id=3302
+"         http://github.com/Rip-Rip/clang_complete
+" Needed:
+" Path to directory where library can be found
+"	let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+"
+" Install:
+" exuberant-ctags (ubuntu)
+"Bundle 'Rip-Rip/clang_complete'

@@ -137,6 +137,12 @@ let @b='i(ea)'
 " Setting the leader for mapped commands
 let mapleader = ","
 
+" Variables
+" ---------
+"  For plugin: Rip-Rip/clang_complete
+let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
+
 " Bindings
 " --------
 " Insert Date-Time (in insert mode)
