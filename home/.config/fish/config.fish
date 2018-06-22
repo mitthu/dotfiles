@@ -25,6 +25,14 @@ function add_after_path -d "add_after_path /foo"
 	end
 end
 
+# Function: add_after_manpath => Suffix/Append manpath with directory (if it exists)
+# Note: Only one directory at a time.
+function add_after_manpath -d "add_after_manpath /foo"
+	if test -d $1
+		set -x MANPATH $MANPATH $1
+	end
+end
+
 # Update $PATH: load my bin/ locations
 add_before_path $HOME/.me/bin
 add_before_path $HOME/.local/bin
@@ -35,6 +43,10 @@ add_before_path $HOME/bin
 add_after_path /usr/java/default/bin
 add_after_path $HOME/node_modules/.bin
 add_after_path $HOME/apps/packer
+
+# Update $MANPATH
+add_after_manpath $HOME/.me/man
+add_after_manpath $HOME/man
 
 # Show proper colors via less
 set -x LESS -FRSX
