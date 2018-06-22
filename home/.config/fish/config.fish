@@ -43,6 +43,15 @@ set -x LESS -FRSX
 . $HOME/.me/alias
 alias re-source=". $HOME/.config/fish/config.fish"
 
+# Right fish prompt: show time to complete last cmd
+# Source: https://adrian-philipp.com/post/cmd-duration-fish-shell
+function fish_right_prompt
+    if test $CMD_DURATION
+        # Show duration of the last command in seconds
+        echo (math -s3 $CMD_DURATION / 1000)s
+    end
+end
+
 # Homeshick utils
 . $HOME/.homesick/repos/homeshick/homeshick.fish
 
