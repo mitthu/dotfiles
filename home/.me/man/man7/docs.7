@@ -1,0 +1,125 @@
+\#.TH [name of program] [section number] [center footer] [left footer] [center header]
+.TH docs 7 "June 20, 2018" "mitthu" "mitthu's Manual"
+
+\# Load package for .URL support
+\# https://linux.die.net/man/7/man
+.mso www.tmac
+
+\# --------------------------------------------------------------------------------
+.ig
+Almost all Unix man pages use the section progression NAME, SYNOPSIS, DESCRIPTION,
+FILES, SEE ALSO, NOTES, AUTHOR, and BUGS, with extra, optional sections as needed.
+Source: https://www.linuxjournal.com/article/1158
+
+Use: .SS for sub-section
+
+Typical sections:
+.SH NAME
+.SH SYNOPSIS
+.SH DESCRIPTION
+.SH OPTIONS
+.SH FILES
+.SH AUTHOR
+.SH "SEE ALSO"
+.SH BUGS
+..
+\# --------------------------------------------------------------------------------
+
+\# Start of man page
+.SH NAME
+docs \- commented man page
+
+\# General cmd line flags and usage
+.SH SYNOPSIS
+
+\" Inline text and formatting
+\fBfoo\fP [\fB-h\fP] [\fB-t\fP \fItype\fP] \fIfilename\fP
+
+\" More readable
+.B docs [-d] [-e] [-f
+.I filename
+.B ]
+
+\" Same formatting as first one
+.B docs
+[\c
+.B -h\c
+]
+[\c
+.BI -t " type"\c
+]
+.I filename
+
+\# Start of man page
+.SH DESCRIPTION
+Describe the awesome tool.
+
+\# Bulleted list
+\# https://www.gnu.org/software/groff/manual/html_node/Lists-in-ms.html
+A bulleted list:
+.IP \[bu] 4
+Item 1
+.IP \[bu] 4
+Item 2
+.PP
+
+\# Numbered list
+.nr step 1 1
+A numbered list:
+
+.IP \n[step] 4
+Item 1
+.IP \n+[step] 4
+Item 2
+.PP
+
+.I Note:
+that this is an example man page. This man page does not correspond
+to any utility named \fIexample\fP.
+
+.SH OPTIONS
+\# ========
+
+.TP
+.B -h
+show help.
+
+.TP
+.B -d
+disable syntax highlighting
+
+.TP
+.BR -e " or " --enable
+enable syntax highlighting
+
+.TP
+.BI -f " filename"
+Specifies the file you want to edit. This option must be given with the
+.BR " -e " "or the " "-d " option.
+
+.IP -d
+disable syntax highlighting
+
+.IP "-f filename"
+Specifies the file you want to edit. This option must be given with the
+.BR " -e " "or the " "-d " option.
+
+.SH FILES
+\# ======
+
+.I /etc/foorc
+.RS
+Global system wide configuration file.
+.RE
+
+.I $HOME/.foorc
+.RS
+Local system configuration file.
+.RE
+
+\# --------------------------------------------------------------------------------
+.SH AUTHOR
+Aditya Basu <me@adityabasu.me> (aka. mitthu).
+
+.SH "SEE ALSO"
+dotfiles(7), template(7)

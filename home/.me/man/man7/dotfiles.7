@@ -1,0 +1,135 @@
+.TH dotfiles 7 "June 20, 2018" "mitthu" "mitthu's Manual"
+.mso www.tmac
+
+.SH NAME
+dotfiles \- explanation of my dotiles
+
+.SH DESCRIPTION
+The dotfiles repository is present in 
+.I ~/.homesick/repos/dotfiles
+directory. Relative links to dotfiles are created in the actual home directory.
+For example -
+.RS
+.IR .vimrc " -> " .homesick/repos/dotfiles/home/.vimrc
+.RE
+
+The repository is in the
+.I castle
+format. This format is expected by the
+.URL https://github.com/andsens/homeshick homeshick .
+
+Steps taken by the deployment script:
+.IP \[bu] 4
+Clone the homeshick project in
+.IR .homesick/repos/homeshick .
+.IP \[bu]
+Add public ssh keys of GitHub and BitBucket to
+.IR ~/.ssh/authorized_keys .
+.IP \[bu]
+Optionally install packages like zsh, fish, tmux, vim, etc.
+.IP \[bu]
+Optionally change shell of current user to
+.IR fish " or " zsh .
+.IP \[bu]
+Run the one-time install script in root directory of the castle, i.e. run
+.IR ~/.homesick/repos/dotfiles/install.sh .
+.IP \[bu]
+Deployment scripts are located in
+.URL https://github.com/mitthu/dotfile_deploy dotfile_deploy .
+
+.PP
+.IR Note :
+All changes are ONLY made to the
+.B $HOME
+directory of the user, except for any package installations and user shell
+changes.
+
+.SH FILES
+.I ~/.me/*
+.RS
+.I ~/.me/bin/*
+.RS
+All my system-independent scripts. Most scritps are prefixed with
+.IR my " (for ex. " myos ")."
+.RE
+
+.I ~/.me/bin_hidden/*
+.RS
+Deprecated scritps.
+.RE
+
+.I ~/.me/config/*
+.RS
+Config files used by scripts in
+.IR ~/.me/bin/* .
+.RE
+
+.I ~/.me/man/*
+.RS
+man pages for all my scripts.
+.RE
+
+.I ~/.me/bin/include\p
+.I ~/.me/bin/common\p
+.I ~/.me/modules/*
+.RS
+Meant to be sourced by all bash and zsh shells.
+.RE
+
+.RS
+Files here are sourced by bash and zsh shells.
+.RE
+.I ~/.me/bin/alias
+.RS
+All my command aliases. File is shared by all shells.
+.RE
+
+.I ~/.me/bin/xautomation/type_date
+.RS
+Auto-type current date and time in X Window Client. Works with Gnome.
+I keymap can be associated with this script to auto-type date with a shortcut.
+.RE
+.RE
+
+.I ~/.melocal/*
+.RS
+All
+.BR *.sh " or " *.fish
+files are sourced by the respective shells. This directory hold system specific
+scripts.
+.RE
+
+.I ~/.virtualenv/*
+.RS
+Directory holds all
+.B python
+related virtual environments.
+.RE
+
+.I ~/.local/share/nautilus/scripts/
+.RS
+Right-click menu action items in 
+.BR nautilus .
+.RE
+
+.I ~/.ansible.cfg\p
+.I ~/.config/fish/config.fish\p
+.I ~/.pip/pip.conf\p
+.I ~/.tmux.conf\p
+.I ~/.vimrc\p
+.I ~/.vim/*\p
+.I ~/.config/awesome/*\p
+.RS
+Utility specific configuration.
+.RE
+
+.I ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
+.RS
+Misc. configs
+.RE
+
+.SH AUTHOR
+Aditya Basu <me@adityabasu.me> (aka. mitthu).
+
+.SH "SEE ALSO"
+docs(7), template(7)
