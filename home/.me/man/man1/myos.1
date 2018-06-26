@@ -6,7 +6,12 @@ myos \- describe the host OS
 .SH SYNOPSIS
 .B myos
 [
-.BR os " | " distro
+.BR -p " | " -d
+]
+
+.B myos
+[
+.BR --os " | " --distro
 ]
 
 .SH DESCRIPTION
@@ -14,37 +19,70 @@ The script determines the host OS.
 
 .SH OPTIONS
 .TP
-.BR os " or " platform
+.BR -p " or " --os " or " --platform
 print the OS type. The script recognizes the following OS:
 .RS
 .IP \[bu] 4
 linux
 .IP \[bu]
-freebsd
+unix
+.IP \[bu]
+solaris
+.IP \[bu]
+macosx
+.IP \[bu]
+windows
 .IP \[bu]
 unknown
 .RE
 
 .TP
-.BR distro " or " type
+.BR -d " or " --distro
 print the distro. The script recognizes the following distros:
 .RS
 .IP \[bu] 4
+os:linux
+.RS
+.IP - 4
 slackware
-.IP \[bu]
+.IP -
 debian
-.IP \[bu]
+.IP -
 centos
-.IP \[bu]
+.IP -
+raspberry-pi
+.RE
+
+.IP \[bu] 4
+os:windows
+.RS
+.IP - 4
+cygwin
+.IP -
+msys
+.RE
+
+.IP \[bu] 4
+os:unix
+.RS
+.IP - 4
+bsd
+.IP -
+freebsd
+.RE
+
+.IP \[bu] 4
 unknown
 .RE
 
 .TP
-.BR -h " or " help
+.BR -h " or " --help
 show help.
 
 
 .SH EXAMPLES
+.I myos
+
 
 .SH FILES
 .I /etc/issue\p
