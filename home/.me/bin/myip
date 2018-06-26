@@ -37,25 +37,25 @@ function ip_external {
 }
 
 case $1 in
-	''|all)
+	''|--all|all)
 		ip_all
 		;;
-	allspaced)
+	--allspaced|allspaced)
 		ip_all_spaced
 		;;
-	all-nolocal)
+	--all-nolocal|all-nolocal)
 		ip_list
 		;;
-	allspaced-nolocal)
+	--allspaced-nolocal|allspaced-nolocal)
 		ip_list_spaced
 		;;
-	internal)
+	--internal|internal)
 		ip_internal
 		;;
-	external)
+	--external|external)
 		ip_external
 		;;
-	*|help)
+	*|-h|--help|help)
 		echo "$0 options:"
 		echo "  -------------------------------------------------------------------------"
 		echo "  Option            | Description"

@@ -6,45 +6,51 @@ myip \- get list of ip addresses
 .SH SYNOPSIS
 .B myip
 [
-.BR all " | " internal " | " external
+.BR --all " | " --internal " | " --external
 ]
 
 .SH DESCRIPTION
 Lookup allocated ip addresses on relevant interfaces.
 
+.IR Note :
+On Linux the IPs are prefixes with the interface (for example:
+.BR "'lo:127.0.0.1'" ),
+while on Mac OS X IPs are suffixed with a colon (for example:
+.BR "'127.0.0.1:'" ).
+
 .SH OPTIONS
 .TP
-.B all
+.BR --all " or " all
 list all IPs, new line separated
 
 .TP
-.BR allspaced
+.BR --allspaced " or " allspaced
 list all IPs, space separated
 
 .TP
-.B all-nolocal
+.BR --all-nolocal " or " all-nolocal
 same as
 .B all
 , execpt don't list interface
 .I lo
 
 .TP
-.B allspaced-nolocal
+.BR --allspaced-nolocal " or " allspaced-nolocal
 same as
 .B allspaced
 , execpt don't list interface
 .I lo
 
 .TP
-.B internal
+.BR --internal " or " internal
 list all internal IPs, new line seperated
 
 .TP
-.B external
+.BR --external " or " external
 list all external IPs, new line seperated
 
 .TP
-.B help
+.BR -h " or " --help " or " help
 show help.
 
 .SH EXAMPLES
@@ -54,10 +60,10 @@ eth0:10.118.50.89
 eth1:172.20.1.5
 lo:127.0.0.1
 
-.B $ myip allspaced
+.B $ myip --allspaced
 eth0:10.118.50.89 eth1:172.20.1.5 lo:127.0.0.1
 
-.B $ myip internal
+.B $ myip --internal
 eth0:10.118.50.89 eth1:172.20.1.5
 
 .fi
