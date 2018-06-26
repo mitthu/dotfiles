@@ -1,0 +1,58 @@
+.TH myos 1 "Last update: June 25, 2018" "mitthu" "mitthu's Manual"
+
+.SH NAME
+myos \- describe the host OS
+
+.SH SYNOPSIS
+.B myos
+[
+.BR os " | " distro
+]
+
+.SH DESCRIPTION
+The script determines the host OS.
+
+.SH OPTIONS
+.TP
+.BR os " or " platform
+print the OS type. The script recognizes the following OS:
+.RS
+.IP \[bu] 4
+linux
+.IP \[bu]
+freebsd
+.IP \[bu]
+unknown
+.RE
+
+.TP
+.BR distro " or " type
+print the distro. The script recognizes the following distros:
+.RS
+.IP \[bu] 4
+slackware
+.IP \[bu]
+debian
+.IP \[bu]
+centos
+.IP \[bu]
+unknown
+.RE
+
+.TP
+.BR -h " or " help
+show help.
+
+
+.SH EXAMPLES
+
+.SH FILES
+.I /etc/issue\p
+.I /etc/slackware-version\p
+
+\# --------------------------------------------------------------------------------
+.SH AUTHOR
+Aditya Basu <me@adityabasu.me> (aka. mitthu).
+
+.SH "SEE ALSO"
+dotfiles(7)
