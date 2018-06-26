@@ -4,17 +4,22 @@
 # Job:
 # ---
 # Determine the OS and Distro of the current system.
+# Source: https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
 
 platform='unknown'
 distro='unknown'
 
-# Determine the OS type: linux/freebsd.
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-   platform='freebsd'
-fi
+# Determine the OS type: linux etc.
+case "$OSTYPE" in
+  solaris*) platform=solaris ;;
+  linux*)   platform=linux ;;
+  darwin*)  platform=macosx ;; 
+  bsd*)     platform=unix; distro=bsd ;;
+  freebsd*) platform=unix; distro=freebsd ;;
+  cygwin*)  platform=windows; distro=cygwin ;;
+  msys*)    platform=windows; distro=msys ;;
+  *)        platform="unknown" ;;
+esac
 
 # Determine the distro, if linux.
 if [[ $platform == 'linux' ]]; then
@@ -34,17 +39,18 @@ if [[ $platform == 'linux' ]]; then
 	fi
 fi
 
+# Parse options
 case $1 in
 	'')
 		echo $platform $distro
 		;;
-	os|platform)
+	-p|--os|--platform)
 		echo $platform
 		;;
-	distro|type)
+	-d|--distro)
 		echo $distro
 		;;
-	help|*)
+	-h|--help|*)
 		echo "$0:"
 		echo "  |==============================================================|"
 		echo "  |                    {Determine OS Type}                       |"
@@ -52,9 +58,9 @@ case $1 in
 		echo "  | Option          | Description                                |"
 		echo "  | -------------------------------------------------------------|"
 		echo "  | <no option>     | emit os + distro, ex. linux slackware      |"
-		echo "  | os / platform   | os type, ex. linux, freebsd                |"
-		echo "  | distro / type   | os sub-type, ex. slackware, debian, centos |"
-		echo "  | help            | display this menu                          |"
+		echo "  | --os            | os type, ex. linux, freebsd                |"
+		echo "  | --distro        | os sub-type, ex. slackware, debian, centos |"
+		echo "  | --help          | display this menu                          |"
 		echo "  |==============================================================|"
 		;;
 esac
