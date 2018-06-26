@@ -29,11 +29,11 @@ function ip_list_spaced {
 }
 
 function ip_internal {
-	ip_list | egrep "172.|:172.|192.|:192.|10.100.|:10.100."
+	ip_list | egrep "172.|:172.|192.|:192.|10.|:10."
 }
 
 function ip_external {
-	ip_list | egrep -v "172.|:172.|192.|:192.|10.100.|:10.100."
+	ip_list | egrep -v "172.|:172.|192.|:192.|10.|:10."
 }
 
 case $1 in
