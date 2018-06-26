@@ -1,0 +1,69 @@
+.TH myip 1 "Last update: June 25, 2018" "mitthu" "mitthu's Manual"
+
+.SH NAME
+myip \- get list of ip addresses
+
+.SH SYNOPSIS
+.B myip
+[
+.BR all " | " internal " | " external
+]
+
+.SH DESCRIPTION
+Lookup allocated ip addresses on relevant interfaces.
+
+.SH OPTIONS
+.TP
+.B all
+list all IPs, new line separated
+
+.TP
+.BR allspaced
+list all IPs, space separated
+
+.TP
+.B all-nolocal
+same as
+.B all
+, execpt don't list interface
+.I lo
+
+.TP
+.B allspaced-nolocal
+same as
+.B allspaced
+, execpt don't list interface
+.I lo
+
+.TP
+.B internal
+list all internal IPs, new line seperated
+
+.TP
+.B external
+list all external IPs, new line seperated
+
+.TP
+.B help
+show help.
+
+.SH EXAMPLES
+.nf
+.B $ myip
+eth0:10.118.50.89
+eth1:172.20.1.5
+lo:127.0.0.1
+
+.B $ myip allspaced
+eth0:10.118.50.89 eth1:172.20.1.5 lo:127.0.0.1
+
+.B $ myip internal
+eth0:10.118.50.89 eth1:172.20.1.5
+
+.fi
+
+.SH AUTHOR
+Aditya Basu <me@adityabasu.me> (aka. mitthu).
+
+.SH "SEE ALSO"
+dotfiles(7)
