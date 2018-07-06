@@ -1,0 +1,54 @@
+.TH template 7 "Last update: July 6, 2018" "mitthu" "mitthu's Manual"
+.mso www.tmac
+
+.SH NAME
+myupdate \- update dotfiles
+
+.SH SYNOPSIS
+.B myupdate
+
+.SH DESCRIPTION
+Update dotfiles repository and link new changes. Also setup a cronjon which runs
+this binary every
+.BR "10mins" .
+
+.SH OPTIONS
+.TP
+.BR -e " or " --enable
+enable syntax highlighting
+
+.TP
+.B -d
+disable syntax highlighting
+
+.TP
+.BI -f " filename"
+Specifies the file you want to edit. This option must be given with the
+.BR " -e " "or the " "-d " option.
+
+.TP
+.B -h
+show help
+
+.SH FILES
+.I /etc/foorc
+.RS
+Global system wide configuration file.
+.RE
+
+.I $HOME/.foorc
+.RS
+Local system configuration file.
+.RE
+
+.SH EXAMPLES
+.nf
+.B "$ myupdate"
+linux raspberry-pi
+.fi
+
+.SH AUTHOR
+Aditya Basu <me@adityabasu.me> (aka. mitthu).
+
+.SH "SEE ALSO"
+dotfiles(7)
