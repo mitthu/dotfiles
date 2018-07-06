@@ -60,7 +60,9 @@ alias re-source=". $HOME/.config/fish/config.fish"
 function fish_right_prompt
     if test $CMD_DURATION
         # Show duration of the last command in seconds
-        echo (math -s3 $CMD_DURATION / 1000)s
+        echo (echo "scale=3;$CMD_DURATION / 1000" | bc)s
+        # Doesn't work with fish v2.1.0, the -s flag
+        #echo (math -s3 $CMD_DURATION / 1000)s
     end
 end
 
