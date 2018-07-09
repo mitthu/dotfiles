@@ -18,6 +18,14 @@ The repository is in the
 format. This format is expected by the
 .URL https://github.com/andsens/homeshick homeshick .
 
+.SS Logs
+Relevant logs are stored inside
+.IR /tmp/melog .
+.B cron
+jobs log to this location. The logs are replaced on every run to avoid log
+rotation efforts.
+
+.SS Deployment Script
 Steps taken by the deployment script:
 .IP \[bu] 4
 Clone the homeshick project in
