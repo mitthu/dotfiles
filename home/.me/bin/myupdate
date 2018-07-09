@@ -6,4 +6,46 @@
 # - Pull and update current dotfiles
 # - Add cron to do so every 10 mins
 
+# Setup logging
+mkdir -p /tmp/melog
+exec &>/tmp/melog/myupdate
+
+# Timestamp log
+echo -n "Last run => "
+date
+
+# Taken from my previous iteration
+function me-update {
+	source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+	homeshick pull dotfiles
+	### Link it all to $HOME ###
+	homeshick link --force
+
+	echo "Updated."
+}
+
+function add_cron {
+	BIN="myupdate"
+	CMD="~/.me/bin/${BIN}"
+	SCHEDULE="*/10 * * * *"
+	JOB="$SCHEDULE $CMD"
+
+	# If cron already exists, then return
+	if crontab -l | grep -F "$BIN" | grep -F "$CMD" | grep -F "$SCHEDULE" >/dev/null; then
+		echo "cron present."
+		return
+	fi
+
+	# 1. Remove old cron (incorrect schedule) and add cron.
+	# 2. If no entry is present, just add the cron.
+	echo "add / update cron."
+	crontab -l | grep -v "$BIN" | { cat; echo "$JOB"; } | crontab -
+}
+
+# Add periodic entry (idempotent function)
+add_cron
+
+# Perform the update
+echo "updating repo..."
+me-update
 
