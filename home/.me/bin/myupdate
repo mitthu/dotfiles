@@ -24,6 +24,7 @@ function me-update {
 	echo "Updated."
 }
 
+# Add cron task
 function add_cron {
 	BIN="myupdate"
 	CMD="~/.me/bin/${BIN}"
@@ -49,3 +50,10 @@ add_cron
 echo "updating repo..."
 me-update
 
+# Update fish completions
+echo "updating fish completions..."
+if [[ -f `which fish` ]]; then
+	fish -c "fish_update_completions"
+fi
+
+echo "done."
