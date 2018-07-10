@@ -18,3 +18,6 @@ fi
 
 # Install vundle plugins
 vim +BundleInstall +qall </dev/tty
+
+# Run myupdate to add cron entry
+~/.me/bin/myupdate
