@@ -57,3 +57,4 @@ if [[ -f `which fish` ]]; then
 fi
 
 echo "done."
+
