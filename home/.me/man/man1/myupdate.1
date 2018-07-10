@@ -10,7 +10,7 @@ myupdate \- update dotfiles
 .SH DESCRIPTION
 Update dotfiles repository and link new changes. Also setup a cron job which
 runs this binary every
-.BR "10mins" .
+.BR "2hrs" .
 On every run the output is logged to
 .IR /tmp/melog/myupdate .
 The script also updates man page cache, runs
@@ -18,7 +18,7 @@ The script also updates man page cache, runs
 
 .SS cron Entry
 .nf
-*/10 * * * * ~/.me/bin/myupdate
+0 */2 * * * ~/.me/bin/myupdate
 .fi
 
 .SH EXAMPLES

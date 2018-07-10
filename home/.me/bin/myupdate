@@ -4,7 +4,7 @@
 # ----
 # Use:
 # - Pull and update current dotfiles
-# - Add cron to do so every 10 mins
+# - Add cron to do so every 2hrs
 
 # Setup logging
 mkdir -p /tmp/melog
@@ -28,7 +28,7 @@ function me-update {
 function add_cron {
 	BIN="myupdate"
 	CMD="~/.me/bin/${BIN}"
-	SCHEDULE="*/10 * * * *"
+	SCHEDULE="0 */2 * * *"
 	JOB="$SCHEDULE $CMD"
 
 	# If cron already exists, then return
