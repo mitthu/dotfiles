@@ -38,6 +38,8 @@ if [[ $platform == 'linux' ]]; then
 		distro='centos'
 	elif [[ $issue == 'Raspbian' ]]; then
 		distro='raspberry-pi'
+	elif [[ $issue == 'Ubuntu' ]]; then
+		distro='ubuntu'
 	fi
 fi
 
