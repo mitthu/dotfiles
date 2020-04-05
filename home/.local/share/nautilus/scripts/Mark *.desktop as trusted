@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for i in $*; do
+  gio set $i "metadata::trusted" yes
+done

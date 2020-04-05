@@ -1,0 +1,4 @@
+#!/bin/bash
+# Useful if the selected script gets opened for
+# editing instead being executed.
+./$1
