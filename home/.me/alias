@@ -62,6 +62,10 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias d='dig +noall +answer'
 alias dr='dig +noall +answer -x'
 
+# Todo.txt
+alias t="todo-txt"
+alias tgui="gtk-launch todour 2>/dev/null"
+
 # Misc.
 alias p="playwire.py"
 ## Run last command with sudo privilege (only zsh compatible)
@@ -77,3 +81,4 @@ alias vundle-install="vim +BundleInstall +qall"
 ## Copy and paste (originally Mac commands)
 alias lcopy='xsel --clipboard --input'
 alias lpaste='xsel --clipboard --output'
+
