@@ -1,0 +1,12 @@
+#!/bin/bash
+# Created on: 11-Apr-2020, 01:24 PM EDT
+# Created by: Aditya Basu (mitthu)
+# ----
+# Use:
+# - Find the correct todo.txt binary
+
+which todo.sh >/dev/null  && exec todo.sh $*
+which todo-txt >/dev/null && exec todo-txt $*
+
+echo "error: no todo.txt binary found" && exit 1
+
