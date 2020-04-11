@@ -10,7 +10,8 @@ LANG=""
 function header {
 	[[ -z $SHEBANG ]] || echo $SHEBANG
 	local username=`whoami`
-	local fullname=`getent passwd $username | cut -d ':' -f 5 | cut -d ',' -f 1`
+	which getent >/dev/null && local fullname=`getent passwd $username | cut -d ':' -f 5 | cut -d ',' -f 1`
+	which finger >/dev/null  && local fullname=`finger $username | head -1 | cut -d: -f3 | xargs`
 	local name=$username
 	[[ -z $fullname ]] || name="$username ($fullname)"
 	
