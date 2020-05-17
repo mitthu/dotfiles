@@ -1,4 +1,9 @@
 {
-    "editor.rulers": [80]
+    "editor.rulers": [
+        80
+    ],
+    "workbench.colorTheme": "United Ubuntu",
+    "editor.minimap.enabled": true,
+    "remote.SSH.enableAgentForwarding": false
 }
 
