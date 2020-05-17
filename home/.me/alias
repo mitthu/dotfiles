@@ -63,7 +63,7 @@ alias d='dig +noall +answer'
 alias dr='dig +noall +answer -x'
 
 # Todo.txt
-alias t="todo -t -a"
+alias t="todo -T -a"
 alias tgui="gtk-launch todour 2>/dev/null"
 
 # Misc.
