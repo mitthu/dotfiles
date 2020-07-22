@@ -20,8 +20,8 @@ end
 # Function: add_after_path => Suffix/Append path with directory (if it exists)
 # Note: Only one directory at a time.
 function add_after_path -d "add_after_path /foo"
-	if test -d $1
-		set -x PATH $PATH $1
+	if test -d $argv[1]
+		set -x PATH $PATH $argv[1]
 	end
 end
 
