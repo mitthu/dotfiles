@@ -1,0 +1,21 @@
+#!/bin/bash
+# Created on: 05-Aug-2021, 10:09 am EDT
+# Added by:   mitthu (Aditya Basu)
+# ----
+# Use:
+# - Install protocol buffer (protoc) compiler
+# - From: https://grpc.io/docs/protoc-installation/
+
+OS=$(myos --os)
+if [[ $OS != "linux" ]]; then
+	echo "error: only linux is supported (detected: $OS)"
+	exit 2
+fi
+
+PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+VER="3.17.3"
+
+cd /tmp
+curl -LO $PB_REL/download/v$VER/protoc-$VER-linux-x86_64.zip
+unzip protoc-$VER-linux-x86_64.zip -d $HOME/.local
+
