@@ -5,8 +5,8 @@
 source $HOME/.me/include
 
 # Update path location
-export PATH=~/.me/bin:$PATH:~/.bin:~/.local/bin
-export PATH=$PATH:/usr/java/default/bin
+add_before_path ~/.me/bin
+add_after_path  ~/.bin ~/.loca/bin /usr/java/default/bin
 
 # Add support for 256 colors
 export TERM=xterm-256color
@@ -21,7 +21,13 @@ export TZ=Asia/Kolkata
 export HOSTALIASES=~/.hosts
 
 # Source all the local bash rc's
-source ~/.melocal/*
+source ~/.melocal/*.sh
 
 # Unset all temperory variables
 unset_me
+
+# Remove duplicates from $PATH
+# https://www.linuxjournal.com/content/removing-duplicate-path-entries
+export PATH=$(echo -n $PATH | awk -v RS=: \
+	'!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+

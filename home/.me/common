@@ -42,3 +42,35 @@ function defp {
 	# dict - the client for the dictionary server
 	def "$1"
 }
+
+# Returns 0 if found else 1
+function exists_in_path {
+	local path
+	for path in ${PATH//:/ }; do
+		[[ "$p" == "$1" ]] && p="bad" && return 0
+	done
+	return 1
+}
+
+# Use: add_before_path /foo /bar ...
+function add_before_path {
+	local path
+	# iterate over all arguments
+	for path in $*; do
+		[[ ! -d "$path" ]] && continue # directory exists?
+		exists_in_path "$path" && continue # already in $PATH?
+		export PATH=$path:$PATH
+	done
+}
+
+# Use: add_after_path /foo /bar ...
+function add_after_path {
+	local path
+	# iterate over all arguments
+	for path in $*; do
+		[[ ! -d "$path" ]] && continue # directory exists?
+		exists_in_path "$path" && continue # already in $PATH?
+		export PATH=$PATH:$path
+	done
+}
+
