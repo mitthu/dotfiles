@@ -117,3 +117,17 @@ for file in $HOME/.melocal/*.fish
 	. $file
 end
 
+# Remove duplicates fom $PATH
+begin
+	# will be new path
+	set mypath
+	# iterate over $PATH
+	for p in $PATH
+		if not contains $p in $mypath
+			set mypath $mypath $p
+		end
+	end
+	# reset $PATH
+	set -x PATH $mypath
+end
+
