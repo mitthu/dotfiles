@@ -80,6 +80,13 @@ set mouse=a
 set pastetoggle=<F2>
 filetype on
 
+" Highlight current line/column
+" https://vimrcfu.com/snippet/160
+set cursorline
+set cursorcolumn
+hi CursorLine     cterm=NONE ctermbg=234 ctermfg=NONE
+hi CursorColumn   cterm=NONE ctermbg=234 ctermfg=NONE
+
 " Set directory for storing backup (*~) and swap (*.swp) files
 set backupdir=/tmp
 set directory=/tmp
