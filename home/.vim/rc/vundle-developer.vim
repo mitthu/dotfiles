@@ -10,7 +10,7 @@
 " Java autocomplete: This is javacomplete, an omni-completion script of JAVA
 " language for vim 7.
 " Source: http://www.vim.org/scripts/script.php?script_id=1785
-Bundle 'javacomplete'
+"Bundle 'javacomplete'
 
 " C/C++/Objective-C/Objective-C++ auto-complete.
 " Source: http://www.vim.org/scripts/script.php?script_id=3302
@@ -22,3 +22,15 @@ Bundle 'javacomplete'
 " Install:
 " exuberant-ctags (ubuntu)
 "Bundle 'Rip-Rip/clang_complete'
+
+" Language Server Protocol & auto-complete
+" https://github.com/prabirshrestha/vim-lsp
+Bundle 'prabirshrestha/vim-lsp'
+Bundle 'prabirshrestha/asyncomplete.vim'
+Bundle 'prabirshrestha/asyncomplete-lsp.vim'
+
+" Install language specific server
+" https://github.com/mattn/vim-lsp-settings
+" Open a file and run :LspInstallServer
+Bundle 'mattn/vim-lsp-settings'
+
