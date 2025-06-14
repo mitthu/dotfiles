@@ -43,6 +43,7 @@ add_before_path $HOME/bin
 add_after_path /usr/java/default/bin
 add_after_path $HOME/node_modules/.bin
 add_after_path $HOME/apps/packer
+add_after_path /opt/homebrew/bin
 
 # Update $MANPATH
 add_after_manpath $HOME/.me/man
