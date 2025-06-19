@@ -29,3 +29,9 @@ unset_me
 export PATH=$(echo -n $PATH | awk -v RS=: \
 	'BEGIN { sep=0 }; !($0 in a) {a[$0]; printf("%s%s", sep ? ":" : "", $0); sep=1}')
 
+# Activate atuin plugin
+if command -v atuin >/dev/null 2>&1; then
+    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+	eval "$(atuin init bash --disable-up-arrow)"
+fi
+
