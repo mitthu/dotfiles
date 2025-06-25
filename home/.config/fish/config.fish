@@ -45,6 +45,7 @@ add_after_path $HOME/node_modules/.bin
 add_after_path $HOME/apps/packer
 add_after_path /opt/homebrew/bin
 add_after_path $HOME/.atuin/bin
+add_after_path $HOME/Library/Python/3.9/bin
 
 # Update $MANPATH
 add_after_manpath $HOME/.me/man

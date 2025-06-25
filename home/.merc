@@ -7,6 +7,7 @@ source $HOME/.me/include
 # Update path location
 add_before_path ~/.me/bin
 add_after_path  ~/.bin ~/.loca/bin /usr/java/default/bin
+add_after_path $HOME/Library/Python/3.9/bin
 
 # Add support for 256 colors
 export TERM=xterm-256color
